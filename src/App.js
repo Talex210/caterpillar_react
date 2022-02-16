@@ -1,10 +1,12 @@
 import './App.css';
-import TrainingGit from './TrainingGit/TrainingGit.jsx'
+import TrainingGit from './Components/TrainingGit/TrainingGit.jsx'
+import TestBranchWithSomething from "./Components/TrainingGit/TestBranchWithParametr";
 
 function App() {
   return (
     <div>
-      <TrainingGit/>
+      <TrainingGit />
+        <TestBranchWithSomething />
     </div>
   );
 }
