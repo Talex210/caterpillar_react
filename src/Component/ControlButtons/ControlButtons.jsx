@@ -1,6 +1,8 @@
+import style from './ControlButtons.module.css'
+
 export const ControlButtons = () => {
     return (
-        <div>
+        <div className={style.controlButtons}>
             ControlButtons
         </div>
     )
