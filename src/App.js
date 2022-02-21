@@ -1,14 +1,16 @@
 import './App.css';
-import TrainingGit from './Components/TrainingGit/TrainingGit.jsx'
-import TestBranchWithSomething from "./Components/TrainingGit/TestBranchWithParametr";
+import {Header} from "./Component/Header/Header";
+import {GameArea} from "./Component/GameZone/GameArea";
+import {ControlButtons} from "./Component/ControlButtons/ControlButtons";
 
 function App() {
-  return (
-    <div>
-      <TrainingGit />
-        <TestBranchWithSomething />
-    </div>
-  );
+    return (
+        <div className='app-wrapper'>
+            <Header />
+            <GameArea />
+            <ControlButtons />
+        </div>
+    );
 }
 
 export default App;
