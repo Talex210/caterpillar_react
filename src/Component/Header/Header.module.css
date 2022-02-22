@@ -2,3 +2,8 @@
     grid-area: h;
     background: deeppink;
 }
+
+.positions {
+    display: flex;
+    justify-content: space-around;
+}
