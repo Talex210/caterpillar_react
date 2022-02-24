@@ -1,6 +1,6 @@
 let startState = {
     nameApp: 'Snake',
-    life: 5,
+    life: 3,
     snakeLength: 3
 }
 

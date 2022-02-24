@@ -1,9 +1,12 @@
 .header {
     grid-area: h;
-    background: deeppink;
 }
 
 .positions {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+}
+
+.life img {
+    width: 3vw;
 }
