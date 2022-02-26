@@ -1,5 +1,5 @@
 import './App.css';
-import {GameArea} from "./Component/GameZone/GameArea";
+import {GameArea} from "./Component/GameArea/GameArea";
 import {ControlButtons} from "./Component/ControlButtons/ControlButtons";
 import HeaderContainer from "./Component/Header/HeaderContainer";
 
