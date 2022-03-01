@@ -1,14 +1,19 @@
 import style from './GameArea.module.css'
+import {Border} from "./Border/Border";
 
-export const GameArea = () => {
-    const viewBox = [0, 0, window.innerWidth, window.innerHeight];
+export const GameArea = (props) => {
     return (
         <div className={style.gameArea}>
             <svg className={style.canvas}
-                 id='gameAreaCanvas'
-                // preserveAspectRatio='xMaxYMax'
-                viewBox={viewBox}>
-                <circle cx={50} cy={50} r={10}/>
+                 id='canvas'
+                 viewBox={props.viewBox}>
+                {/*Test work for yourself*/}
+                {/*<circle cx={100} cy={20} r={20}/>
+                <rect x={50} y={100} width={200} height={200}/>*/}
+                <Border width={props.width}
+                        blockSize={props.blockSize}
+                        height={props.height}
+                />
             </svg>
         </div>
     )

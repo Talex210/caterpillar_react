@@ -3,14 +3,25 @@ import React from "react";
 import {GameArea} from "./GameArea";
 
 class GameAreaContainer extends React.Component {
+    viewBox = [0, 0, this.props.width, this.props.height]
+    widthInBlocks = this.props.width / this.props.blockSize
+    heightInBlocks = this.props.height / this.props.blockSize
     render() {
-        return (<GameArea/>)
+        return (
+            <GameArea viewBox={this.viewBox}
+                      width={this.props.width}
+                      blockSize={this.props.blockSize}
+                      height={this.props.height}
+            />
+        )
     }
 }
 
-const mapStateToProps = () => {
+const mapStateToProps = (state) => {
     return {
-
+        width: state.gameArea.width,
+        blockSize: state.gameArea.blockSize,
+        height: state.gameArea.height
     }
 }
 
