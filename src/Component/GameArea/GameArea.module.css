@@ -2,3 +2,7 @@
     grid-area: g;
     background: darkgreen;
 }
+
+.canvas {
+    border: 10px solid black;
+}

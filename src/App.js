@@ -1,13 +1,13 @@
 import './App.css';
-import {GameArea} from "./Component/GameArea/GameArea";
 import {ControlButtons} from "./Component/ControlButtons/ControlButtons";
 import HeaderContainer from "./Component/Header/HeaderContainer";
+import GameAreaContainer from "./Component/GameArea/GameAreaContainer";
 
 function App() {
     return (
         <div className='app-wrapper'>
             <HeaderContainer />
-            <GameArea />
+            <GameAreaContainer />
             <ControlButtons />
         </div>
     );
