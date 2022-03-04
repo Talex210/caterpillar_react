@@ -2,9 +2,13 @@ let initialState = {
     width: window.innerWidth,
     height: window.innerHeight,
     blockSize: 20,
-    snack: {
-        x: [],
-        y: []
+    snake: {
+        x: [10,11,12],
+        y: [15,15,15]
+    },
+    apple: {
+        x: 2,
+        y: 2
     }
 }
 

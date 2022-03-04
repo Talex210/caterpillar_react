@@ -12,6 +12,8 @@ class GameAreaContainer extends React.Component {
                       width={this.props.width}
                       blockSize={this.props.blockSize}
                       height={this.props.height}
+                      apple={this.props.apple}
+                      snake={this.props.snake}
             />
         )
     }
@@ -21,7 +23,9 @@ const mapStateToProps = (state) => {
     return {
         width: state.gameArea.width,
         blockSize: state.gameArea.blockSize,
-        height: state.gameArea.height
+        height: state.gameArea.height,
+        apple: state.gameArea.apple,
+        snake: state.gameArea.snake
     }
 }
 
