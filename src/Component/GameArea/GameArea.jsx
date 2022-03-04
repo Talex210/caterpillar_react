@@ -1,5 +1,6 @@
 import style from './GameArea.module.css'
-import {Border} from "./Border/Border";
+import {Border} from './Border/Border';
+import {Block} from './Block/Block';
 
 export const GameArea = (props) => {
     return (
@@ -14,6 +15,7 @@ export const GameArea = (props) => {
                         blockSize={props.blockSize}
                         height={props.height}
                 />
+                <Block blockSize={props.blockSize}/>
             </svg>
         </div>
     )

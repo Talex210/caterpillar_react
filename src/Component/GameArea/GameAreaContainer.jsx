@@ -1,11 +1,11 @@
-import {connect} from "react-redux";
-import React from "react";
-import {GameArea} from "./GameArea";
+import {connect} from 'react-redux';
+import React from 'react';
+import {GameArea} from './GameArea';
 
 class GameAreaContainer extends React.Component {
     viewBox = [0, 0, this.props.width, this.props.height]
-    widthInBlocks = this.props.width / this.props.blockSize
-    heightInBlocks = this.props.height / this.props.blockSize
+    widthInBlocks = this.props.width / this.props.blockSize // использовать Math для получения целого числа
+    heightInBlocks = this.props.height / this.props.blockSize // использовать Math для получения целого числа
     render() {
         return (
             <GameArea viewBox={this.viewBox}
