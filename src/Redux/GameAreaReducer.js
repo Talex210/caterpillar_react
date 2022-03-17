@@ -1,19 +1,15 @@
-
-
 let initialState = {
-    width: Math.trunc(window.innerWidth / 100) * 100, // ~ -20% наверное, нужно что бы все поля помещались в экран
-    height: Math.trunc(window.innerHeight / 100) * 100, // ~ -20%
+    width: Math.trunc(window.innerWidth / 100) * 100, // нужно разобраться, что бы игра не выходила за видимий экрна
+    height: Math.trunc(window.innerHeight / 100) * 100,
     blockSize: 20,
     snake: {
-        x: [1, 2, 3],
-        y: [15, 15, 15]
+        x: [1, 2, 3, 3, 3, 4, 5, 5, 5, 5, 5, 4],
+        y: [15, 15, 15, 14, 13, 13, 13, 14, 15, 16, 17, 17]
     },
     apple: {
         x: 3,
         y: 3
-    },
-    isCollision: false,
-    isEat: false
+    }
 }
 
 export const GameAreaReducer = (state = initialState, action) => {
@@ -22,7 +18,6 @@ export const GameAreaReducer = (state = initialState, action) => {
             return state;
     }
 }
-
 
 
 window.initialState = initialState

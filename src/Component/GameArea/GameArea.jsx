@@ -8,6 +8,7 @@ export const GameArea = (props) => {
         <div className={style.gameArea}>
             {props.collision()}
             {props.eatApple()}
+            {props.bodyCollision()}
             <svg className={style.canvas}
                  id='canvas'
                  viewBox={props.viewBox}>
