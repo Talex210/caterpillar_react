@@ -18,12 +18,8 @@ class GameAreaContainer extends React.Component {
 
     bodyCollision = () => {
         for (let i = 0; i < this.bodySnakeX.length; i++) {
-            if (this.bodySnakeX[i] === this.headSnakeX) {
-                for (let i = 0; i < this.bodySnakeY.length; i++) {
-                    if (this.bodySnakeY[i] === this.headSnakeY) {
-                        this.props.minusLife(this.life - 1)
-                    }
-                }
+            if (this.bodySnakeX[i] === this.headSnakeX && this.bodySnakeY[i] === this.headSnakeY) {
+                this.props.minusLife(this.life - 1)
             }
         }
     }

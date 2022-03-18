@@ -3,8 +3,8 @@ let initialState = {
     height: Math.trunc(window.innerHeight / 100) * 100,
     blockSize: 20,
     snake: {
-        x: [1, 2, 3, 3, 3, 4, 5, 5, 5, 5, 5, 4],
-        y: [15, 15, 15, 14, 13, 13, 13, 14, 15, 16, 17, 17]
+        x: [1, 2, 3],
+        y: [15, 15, 15]
     },
     apple: {
         x: 3,
