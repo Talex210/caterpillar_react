@@ -1,0 +1,11 @@
+.head {
+    fill: red;
+}
+
+.bodyEven {
+    fill: orange;
+}
+
+.bodyOdd {
+    fill: blue;
+}

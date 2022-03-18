@@ -3,13 +3,14 @@ let initialState = {
     height: Math.trunc(window.innerHeight / 100) * 100,
     blockSize: 20,
     snake: {
-        x: [1, 2, 3],
-        y: [15, 15, 15]
+        x: [1, 2, 3, 4, 4, 4],
+        y: [15, 15, 15, 15, 16, 17]
     },
     apple: {
         x: 3,
         y: 3
-    }
+    },
+    direction: 'right'
 }
 
 export const GameAreaReducer = (state = initialState, action) => {
