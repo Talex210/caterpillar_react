@@ -2,8 +2,14 @@ import {connect} from 'react-redux';
 import React from 'react';
 import {GameArea} from './GameArea';
 import {minusLife, plusLength} from '../../Redux/HeaderReducer';
+import {moveRight} from '../../Redux/GameAreaReducer';
 
 class GameAreaContainer extends React.Component {
+
+    /*componentDidMount() {
+        setTimeout(this.props.moveRight(), 150)
+    }*/
+
     viewBox = [0, 0, this.props.width, this.props.height];
 
     widthInBlocks = Math.trunc(this.props.width / this.props.blockSize) - 1;
@@ -37,6 +43,11 @@ class GameAreaContainer extends React.Component {
         }
     }
 
+
+    moveRight = () => {
+        setTimeout(this.props.moveRight, 1500)
+    }
+
     render() {
         return (
             <GameArea viewBox={this.viewBox}
@@ -48,6 +59,7 @@ class GameAreaContainer extends React.Component {
                       collision={this.collision}
                       eatApple={this.eatApple}
                       bodyCollision={this.bodyCollision}
+                      moveRight={this.moveRight}
             />
         )
     }
@@ -67,4 +79,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, {minusLife, plusLength})(GameAreaContainer)
+export default connect(mapStateToProps, {minusLife, plusLength, moveRight})(GameAreaContainer)
