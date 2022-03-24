@@ -6,7 +6,6 @@ import {Apple} from "./Elements/Apple/Apple";
 export const GameArea = (props) => {
     return (
         <div className={style.gameArea}>
-            {props.collision()}
             {props.eatApple()}
             {props.bodyCollision()}
             <svg className={style.canvas}
