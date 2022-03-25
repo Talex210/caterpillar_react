@@ -19,12 +19,27 @@ class GameAreaContainer extends React.Component {
     isCollision = this.props.isCollision;
 
     componentDidMount() {
-        let stop = setInterval(this.props.moveRight, 125);
-        // let stop = setInterval(this.props.moveUp, 125);
-        // let stop = setInterval(this.props.moveDown, 125);
-        // let stop = setInterval(this.props.moveLeft, 125);
-        this.props.setStop(stop);
         setInterval(this.props.IsThereCollision, 125);
+        switch (this.props.direction) {
+            case 'right':
+                let stop = setInterval(this.props.moveRight, 125);
+                this.props.setStop(stop);
+                break;
+            case 'up':
+                let stop2 = setInterval(this.props.moveUp, 125);
+                this.props.setStop(stop2);
+                break;
+            case 'down':
+                let stop3 = setInterval(this.props.moveDown, 125);
+                this.props.setStop(stop3);
+                break;
+            case 'left':
+                let stop4 = setInterval(this.props.moveLeft, 125);
+                this.props.setStop(stop4);
+                break;
+            default:
+                break;
+        }
     }
 
     bodyCollision = () => {
@@ -42,11 +57,11 @@ class GameAreaContainer extends React.Component {
         }
     }*/
 
-    /*minusLife = () => {
+    /*minusLife2 = () => {
         if (this.isCollision) {
             this.props.minusLife(this.life - 1)
         }
-    }*/ // так не работает
+    }*/
 
     eatApple = () => {
         if (this.headSnakeX === this.props.apple.x && this.headSnakeY === this.props.apple.y) {
@@ -66,7 +81,7 @@ class GameAreaContainer extends React.Component {
                           snake={this.props.snake}
                           eatApple={this.eatApple}
                           bodyCollision={this.bodyCollision}
-                          // minusLife={this.minusLife}
+                    // minusLife={this.minusLife2}
                 />
             </>
         )
@@ -83,7 +98,8 @@ const mapStateToProps = (state) => {
         life: state.header.life,
         snakeLength: state.header.snakeLength,
         intervalStop: state.gameArea.intervalStop,
-        isCollision: state.gameArea.isCollision
+        isCollision: state.gameArea.isCollision,
+        direction: state.gameArea.direction
     }
 }
 

@@ -10,8 +10,8 @@ let initialState = {
     height: Math.trunc(window.innerHeight / 100) * 100,
     blockSize: 20,
     snake: {
-        x: [12, 13, 14, 15, 15, 15],
-        y: [15, 15, 15, 15, 14, 13]
+        x: [12, 13, 14, 15, 15, 15, 16],
+        y: [15, 15, 15, 15, 14, 13, 13]
     },
     apple: {
         x: 3,
@@ -87,7 +87,7 @@ export const GameAreaReducer = (state = initialState, action) => {
                 }
             }
             return state;
-                // this.props.minusLife(this.life - 1);
+        // this.props.minusLife(this.life - 1);
         default:
             return state;
     }
