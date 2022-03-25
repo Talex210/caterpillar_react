@@ -10,8 +10,8 @@ let initialState = {
     height: Math.trunc(window.innerHeight / 100) * 100,
     blockSize: 20,
     snake: {
-        x: [1, 2, 3],
-        y: [15, 15, 15]
+        x: [12, 13, 14, 15, 15, 15],
+        y: [15, 15, 15, 15, 14, 13]
     },
     apple: {
         x: 3,
@@ -41,6 +41,39 @@ export const GameAreaReducer = (state = initialState, action) => {
                 },
                 direction: 'right'
             }
+        case UP:
+            return {
+                ...state,
+                snake: {
+                    x: [...state.snake.x.slice(1, state.snake.x.length),
+                        state.snake.x[state.snake.x.length - 1]],
+                    y: [...state.snake.y.slice(1, state.snake.y.length),
+                        state.snake.y[state.snake.y.length - 1] - 1]
+                },
+                direction: 'up'
+            }
+        case DOWN:
+            return {
+                ...state,
+                snake: {
+                    x: [...state.snake.x.slice(1, state.snake.x.length),
+                        state.snake.x[state.snake.x.length - 1]],
+                    y: [...state.snake.y.slice(1, state.snake.y.length),
+                        state.snake.y[state.snake.y.length - 1] + 1]
+                },
+                direction: 'down'
+            }
+        case LEFT:
+            return {
+                ...state,
+                snake: {
+                    x: [...state.snake.x.slice(1, state.snake.x.length),
+                        state.snake.x[state.snake.x.length - 1] - 1],
+                    y: [...state.snake.y.slice(1, state.snake.y.length),
+                        state.snake.y[state.snake.y.length - 1]]
+                },
+                direction: 'left'
+            }
         case STOP:
             return {
                 ...state,
@@ -53,6 +86,7 @@ export const GameAreaReducer = (state = initialState, action) => {
                     isCollision: true
                 }
             }
+            return state;
                 // this.props.minusLife(this.life - 1);
         default:
             return state;
@@ -60,6 +94,9 @@ export const GameAreaReducer = (state = initialState, action) => {
 }
 
 export const moveRight = () => ({type: RIGHT});
+export const moveUp = () => ({type: UP});
+export const moveDown = () => ({type: DOWN});
+export const moveLeft = () => ({type: LEFT});
 export const setStop = (stop) => ({type: STOP, stop});
 export const IsThereCollision = () => ({type: COLLISION});
 

@@ -2,7 +2,7 @@ import {connect} from 'react-redux';
 import React from 'react';
 import {GameArea} from './GameArea';
 import {minusLife, plusLength} from '../../Redux/HeaderReducer';
-import {IsThereCollision, moveRight, setStop} from '../../Redux/GameAreaReducer';
+import {IsThereCollision, moveDown, moveLeft, moveRight, moveUp, setStop} from '../../Redux/GameAreaReducer';
 
 class GameAreaContainer extends React.Component {
     viewBox = [0, 0, this.props.width, this.props.height];
@@ -20,6 +20,9 @@ class GameAreaContainer extends React.Component {
 
     componentDidMount() {
         let stop = setInterval(this.props.moveRight, 125);
+        // let stop = setInterval(this.props.moveUp, 125);
+        // let stop = setInterval(this.props.moveDown, 125);
+        // let stop = setInterval(this.props.moveLeft, 125);
         this.props.setStop(stop);
         setInterval(this.props.IsThereCollision, 125);
     }
@@ -39,6 +42,12 @@ class GameAreaContainer extends React.Component {
         }
     }*/
 
+    /*minusLife = () => {
+        if (this.isCollision) {
+            this.props.minusLife(this.life - 1)
+        }
+    }*/ // так не работает
+
     eatApple = () => {
         if (this.headSnakeX === this.props.apple.x && this.headSnakeY === this.props.apple.y) {
             this.props.plusLength(this.snakeLength + 1);
@@ -55,9 +64,9 @@ class GameAreaContainer extends React.Component {
                           height={this.props.height}
                           apple={this.props.apple}
                           snake={this.props.snake}
-                          collision={this.collision}
                           eatApple={this.eatApple}
                           bodyCollision={this.bodyCollision}
+                          // minusLife={this.minusLife}
                 />
             </>
         )
@@ -79,5 +88,5 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, {
-    minusLife, plusLength, moveRight, setStop, IsThereCollision
+    minusLife, plusLength, moveRight, setStop, IsThereCollision, moveUp, moveDown, moveLeft
 })(GameAreaContainer)
