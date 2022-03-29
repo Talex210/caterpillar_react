@@ -19,27 +19,29 @@ class GameAreaContainer extends React.Component {
     isCollision = this.props.isCollision;
 
     componentDidMount() {
-        setInterval(this.props.IsThereCollision, 125);
-        switch (this.props.direction) {
-            case 'right':
-                let stop = setInterval(this.props.moveRight, 125);
-                this.props.setStop(stop);
-                break;
-            case 'up':
-                let stop2 = setInterval(this.props.moveUp, 125);
-                this.props.setStop(stop2);
-                break;
-            case 'down':
-                let stop3 = setInterval(this.props.moveDown, 125);
-                this.props.setStop(stop3);
-                break;
-            case 'left':
-                let stop4 = setInterval(this.props.moveLeft, 125);
-                this.props.setStop(stop4);
-                break;
-            default:
-                break;
-        }
+        setInterval(this.props.IsThereCollision, 100);
+        let stop = setInterval(this.props.moveRight, 125);
+        this.props.setStop(stop);
+    }
+
+    setStop = (stop) => {
+        this.props.setStop(stop);
+    }
+
+    right = () => {
+        this.props.moveRight();
+    }
+
+    up = () => {
+        this.props.moveUp();
+    }
+
+    down = () => {
+        this.props.moveDown();
+    }
+
+    left = () => {
+        this.props.moveLeft();
     }
 
     bodyCollision = () => {
@@ -81,6 +83,12 @@ class GameAreaContainer extends React.Component {
                           snake={this.props.snake}
                           eatApple={this.eatApple}
                           bodyCollision={this.bodyCollision}
+                          up={this.up}
+                          intervalStop={this.props.intervalStop}
+                          setStop={this.setStop}
+                          right={this.right}
+                          down={this.down}
+                          left={this.left}
                     // minusLife={this.minusLife2}
                 />
             </>

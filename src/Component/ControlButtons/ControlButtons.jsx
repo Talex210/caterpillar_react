@@ -1,11 +1,14 @@
 import style from './ControlButtons.module.css'
-import {useEffect, useRef} from "react";
-import {moveUp} from "../../Redux/GameAreaReducer";
+// import {useEffect} from "react";
 
 export const ControlButtons = () => {
 
     /*useEffect(() => {
-        const onKeypress = e => console.log(e);
+        const onKeypress = e => {
+            if(e.code === 'KeyW') {
+                console.log('press W')
+            }
+        }
 
         document.addEventListener('keypress', onKeypress);
 
@@ -14,7 +17,7 @@ export const ControlButtons = () => {
         };
     }, []);*/
 
-    const useKey = (key, cb) => {
+    /*const useKey = (key, cb) => {
         const callbackRef = useRef(cb);
         useEffect(() => {
             callbackRef.current = cb
@@ -29,20 +32,20 @@ export const ControlButtons = () => {
             document.addEventListener('keypress', handle)
             return () => document.removeEventListener('keypress', handle)
         }, [key])
-    }
+    }*/
 
-    const handleSpace = () => {
+    /*const handleSpace = () => {
         console.log('Space key is pressed')
     }
-    useKey('Space', handleSpace)
+    useKey('Space', handleSpace)*/
 
-    const handleKeyW = () => {
+    /*const handleKeyW = () => {
         console.log('W key is pressed')
         moveUp()
-    }
-    useKey('KeyW', handleKeyW)
+    }*/
+    // useKey('KeyW', moveUp)
 
-    const handleKeyA = () => {
+    /*const handleKeyA = () => {
         console.log('A key is pressed')
     }
     useKey('KeyA', handleKeyA)
@@ -55,7 +58,7 @@ export const ControlButtons = () => {
     const handleKeyD = () => {
         console.log('D key is pressed')
     }
-    useKey('KeyD', handleKeyD)
+    useKey('KeyD', handleKeyD)*/
 
     return (
         <div className={style.controlButtons}>

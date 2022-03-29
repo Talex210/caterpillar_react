@@ -2,13 +2,70 @@ import style from './GameArea.module.css'
 import {Border} from './Elements/Border/Border';
 import {BlockSnake} from './Elements/BlockSnake/BlockSnake';
 import {Apple} from "./Elements/Apple/Apple";
+import {useEffect} from "react";
 
 export const GameArea = (props) => {
+
+    const right = () => {
+        clearInterval(props.intervalStop);
+        let stop = setInterval(props.right, 125);
+        props.setStop(stop)
+    }
+
+    const left = () => {
+        clearInterval(props.intervalStop);
+        let stop = setInterval(props.left, 125);
+        props.setStop(stop)
+    }
+
+    const up = () => {
+        clearInterval(props.intervalStop);
+        let stop = setInterval(props.up, 125);
+        props.setStop(stop)
+    }
+
+    const down = () => {
+        clearInterval(props.intervalStop);
+        let stop = setInterval(props.down, 125);
+        props.setStop(stop)
+    }
+
+    useEffect(() => {
+        const onKeypress = e => {
+            switch (e.code) {
+                case 'KeyD':
+                    right()
+                    break;
+                case 'KeyA':
+                    left()
+                    break;
+                case 'KeyW':
+                    up()
+                    break;
+                case 'KeyS':
+                    down()
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        document.addEventListener('keypress', onKeypress);
+
+        return () => {
+            document.removeEventListener('keypress', onKeypress);
+        };
+    }, [down, left, right, up]);
+
     return (
         <div className={style.gameArea}>
             {/*{props.minusLife()}*/}
             {props.eatApple()}
             {props.bodyCollision()}
+            <button onClick={left}>Left</button>
+            <button onClick={right}>Right</button>
+            <button onClick={up}>Up</button>
+            <button onClick={down}>Down</button>
             <svg className={style.canvas}
                  id='canvas'
                  viewBox={props.viewBox}>
