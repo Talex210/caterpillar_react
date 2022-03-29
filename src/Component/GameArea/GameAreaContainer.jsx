@@ -15,17 +15,6 @@ import {
 class GameAreaContainer extends React.Component {
     viewBox = [0, 0, this.props.width, this.props.height];
 
-    widthInBlocks = Math.trunc(this.props.width / this.props.blockSize) - 1;
-    heightInBlocks = Math.trunc(this.props.height / this.props.blockSize) - 1;
-    headSnakeX = this.props.snake.x[this.props.snake.x.length - 1];
-    headSnakeY = this.props.snake.y[this.props.snake.y.length - 1];
-    bodySnakeX = this.props.snake.x.slice(0, this.props.snake.x.length - 1);
-    bodySnakeY = this.props.snake.y.slice(0, this.props.snake.y.length - 1);
-    life = this.props.life;
-    snakeLength = this.props.snakeLength;
-    intervalStop = this.props.intervalStop;
-    isCollision = this.props.isCollision;
-
     componentDidMount() {
         setInterval(this.props.IsThereCollision, 100);
         /*let stop = setInterval(this.props.moveRight, 125);
@@ -81,27 +70,6 @@ class GameAreaContainer extends React.Component {
         }
     }
 
-    bodyCollision = () => {
-        for (let i = 0; i < this.bodySnakeX.length; i++) {
-            if (this.bodySnakeX[i] === this.headSnakeX && this.bodySnakeY[i] === this.headSnakeY) {
-                this.props.minusLife(this.life - 1)
-            }
-        }
-    }
-
-    /*collision = () => {
-        if (this.headSnakeX === 0 || this.headSnakeY === 0 || this.headSnakeX === this.widthInBlocks ||
-            this.headSnakeY === this.heightInBlocks) {
-            this.props.minusLife(this.life - 1);
-        }
-    }*/
-
-    /*minusLife2 = () => {
-        if (this.isCollision) {
-            this.props.minusLife(this.life - 1)
-        }
-    }*/
-
     eatApple = () => {
         if (this.headSnakeX === this.props.apple.x && this.headSnakeY === this.props.apple.y) {
             this.props.plusLength(this.snakeLength + 1);
@@ -119,17 +87,15 @@ class GameAreaContainer extends React.Component {
                           apple={this.props.apple}
                           snake={this.props.snake}
                           eatApple={this.eatApple}
-                          bodyCollision={this.bodyCollision}
-                          up={this.up}
                           intervalStop={this.props.intervalStop}
                           setStop={this.setStop}
                           right={this.right}
-                          down={this.down}
                           left={this.left}
+                          up={this.up}
+                          down={this.down}
                           stop={this.stop}
                           start={this.start}
                           isStop={this.props.isStop}
-                    // minusLife={this.minusLife2}
                 />
             </>
         )

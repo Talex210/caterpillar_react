@@ -87,9 +87,19 @@ export const GameAreaReducer = (state = initialState, action) => {
                     ...state,
                     isCollision: true
                 }
+            } else {
+                for (let i = 0; i < bodySnakeX.length; i++) {
+                    if (bodySnakeX[i] === headSnakeX && bodySnakeY[i] === headSnakeY) {
+                        return {
+                            ...state,
+                            isCollision: true
+                        }
+                    }
+                }
             }
             return state;
         // this.props.minusLife(this.life - 1);
+
         case BUTTON_START_STOP:
             return {
                 ...state,

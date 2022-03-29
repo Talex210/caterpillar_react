@@ -42,9 +42,7 @@ export const GameArea = (props) => {
 
     return (
         <div className={style.gameArea}>
-            {/*{props.minusLife()}*/}
             {props.eatApple()}
-            {props.bodyCollision()}
             <button onClick={props.left}>Left</button>
             <button onClick={props.right}>Right</button>
             <button onClick={props.up}>Up</button>
