@@ -4,11 +4,7 @@ import style from './ControlButtons.module.css'
 export const ControlButtons = () => {
 
     /*useEffect(() => {
-        const onKeypress = e => {
-            if(e.code === 'KeyW') {
-                console.log('press W')
-            }
-        }
+        const onKeypress = e => console.log(e)
 
         document.addEventListener('keypress', onKeypress);
 

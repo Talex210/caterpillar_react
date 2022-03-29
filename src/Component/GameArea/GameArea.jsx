@@ -30,20 +30,52 @@ export const GameArea = (props) => {
         props.setStop(stop)
     }
 
+    const stop = () => {
+        props.setStartStop(true);
+        clearInterval(props.intervalStop);
+    }
+
+    const start = () => {
+        props.setStartStop(false);
+        switch (props.direction) {
+            case 'right':
+                right();
+                break;
+            case 'left':
+                left();
+                break;
+            case 'up':
+                up();
+                break;
+            case 'down':
+                down();
+                break;
+            default:
+                break;
+        }
+    }
+
     useEffect(() => {
         const onKeypress = e => {
             switch (e.code) {
                 case 'KeyD':
+                case 'Numpad6':
                     right()
                     break;
                 case 'KeyA':
+                case 'Numpad4':
                     left()
                     break;
-                case 'KeyW':
+                case 'KeyW' :
+                case 'Numpad8':
                     up()
                     break;
                 case 'KeyS':
+                case 'Numpad2':
                     down()
+                    break;
+                case 'Space':
+                    props.isStop ? start() : stop()
                     break;
                 default:
                     break;
@@ -55,7 +87,7 @@ export const GameArea = (props) => {
         return () => {
             document.removeEventListener('keypress', onKeypress);
         };
-    }, [down, left, right, up]);
+    }, [down, left, props.isStop, right, start, stop, up]);
 
     return (
         <div className={style.gameArea}>
@@ -66,6 +98,7 @@ export const GameArea = (props) => {
             <button onClick={right}>Right</button>
             <button onClick={up}>Up</button>
             <button onClick={down}>Down</button>
+            <button onClick={props.isStop ? start : stop}>Start / Stop</button>
             <svg className={style.canvas}
                  id='canvas'
                  viewBox={props.viewBox}>

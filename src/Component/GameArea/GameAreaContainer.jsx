@@ -2,7 +2,15 @@ import {connect} from 'react-redux';
 import React from 'react';
 import {GameArea} from './GameArea';
 import {minusLife, plusLength} from '../../Redux/HeaderReducer';
-import {IsThereCollision, moveDown, moveLeft, moveRight, moveUp, setStop} from '../../Redux/GameAreaReducer';
+import {
+    IsThereCollision,
+    moveDown,
+    moveLeft,
+    moveRight,
+    moveUp,
+    setStartStop,
+    setStop
+} from '../../Redux/GameAreaReducer';
 
 class GameAreaContainer extends React.Component {
     viewBox = [0, 0, this.props.width, this.props.height];
@@ -20,8 +28,8 @@ class GameAreaContainer extends React.Component {
 
     componentDidMount() {
         setInterval(this.props.IsThereCollision, 100);
-        let stop = setInterval(this.props.moveRight, 125);
-        this.props.setStop(stop);
+        /*let stop = setInterval(this.props.moveRight, 125);
+        this.props.setStop(stop);*/
     }
 
     setStop = (stop) => {
@@ -89,6 +97,9 @@ class GameAreaContainer extends React.Component {
                           right={this.right}
                           down={this.down}
                           left={this.left}
+                          direction={this.props.direction}
+                          isStop={this.props.isStop}
+                          setStartStop={this.props.setStartStop}
                     // minusLife={this.minusLife2}
                 />
             </>
@@ -107,10 +118,11 @@ const mapStateToProps = (state) => {
         snakeLength: state.header.snakeLength,
         intervalStop: state.gameArea.intervalStop,
         isCollision: state.gameArea.isCollision,
-        direction: state.gameArea.direction
+        direction: state.gameArea.direction,
+        isStop: state.gameArea.isStop
     }
 }
 
 export default connect(mapStateToProps, {
-    minusLife, plusLength, moveRight, setStop, IsThereCollision, moveUp, moveDown, moveLeft
+    minusLife, plusLength, moveRight, setStop, IsThereCollision, moveUp, moveDown, moveLeft, setStartStop
 })(GameAreaContainer)

@@ -4,6 +4,7 @@ const UP = 'UP';
 const DOWN = 'DOWN';
 const STOP = 'STOP';
 const COLLISION = 'COLLISION';
+const BUTTON_START_STOP = 'BUTTON_START_STOP';
 
 let initialState = {
     width: Math.trunc(window.innerWidth / 100) * 100, // нужно разобраться, что бы игра не выходила за видимий экрна
@@ -19,7 +20,8 @@ let initialState = {
     },
     direction: 'right',
     intervalStop: 0,
-    isCollision: false
+    isCollision: false,
+    isStop: true
 }
 
 export const GameAreaReducer = (state = initialState, action) => {
@@ -88,6 +90,11 @@ export const GameAreaReducer = (state = initialState, action) => {
             }
             return state;
         // this.props.minusLife(this.life - 1);
+        case BUTTON_START_STOP:
+            return {
+                ...state,
+                isStop: action.start_stop
+            }
         default:
             return state;
     }
@@ -99,5 +106,6 @@ export const moveDown = () => ({type: DOWN});
 export const moveLeft = () => ({type: LEFT});
 export const setStop = (stop) => ({type: STOP, stop});
 export const IsThereCollision = () => ({type: COLLISION});
+export const setStartStop = (start_stop) => ({type: BUTTON_START_STOP, start_stop});
 
 window.initialState = initialState
