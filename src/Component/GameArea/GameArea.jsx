@@ -6,76 +6,27 @@ import {useEffect} from "react";
 
 export const GameArea = (props) => {
 
-    const right = () => {
-        clearInterval(props.intervalStop);
-        let stop = setInterval(props.right, 125);
-        props.setStop(stop)
-    }
-
-    const left = () => {
-        clearInterval(props.intervalStop);
-        let stop = setInterval(props.left, 125);
-        props.setStop(stop)
-    }
-
-    const up = () => {
-        clearInterval(props.intervalStop);
-        let stop = setInterval(props.up, 125);
-        props.setStop(stop)
-    }
-
-    const down = () => {
-        clearInterval(props.intervalStop);
-        let stop = setInterval(props.down, 125);
-        props.setStop(stop)
-    }
-
-    const stop = () => {
-        props.setStartStop(true);
-        clearInterval(props.intervalStop);
-    }
-
-    const start = () => {
-        props.setStartStop(false);
-        switch (props.direction) {
-            case 'right':
-                right();
-                break;
-            case 'left':
-                left();
-                break;
-            case 'up':
-                up();
-                break;
-            case 'down':
-                down();
-                break;
-            default:
-                break;
-        }
-    }
-
     useEffect(() => {
         const onKeypress = e => {
             switch (e.code) {
                 case 'KeyD':
                 case 'Numpad6':
-                    right()
+                    props.right()
                     break;
                 case 'KeyA':
                 case 'Numpad4':
-                    left()
+                    props.left()
                     break;
                 case 'KeyW' :
                 case 'Numpad8':
-                    up()
+                    props.up()
                     break;
                 case 'KeyS':
                 case 'Numpad2':
-                    down()
+                    props.down()
                     break;
-                case 'Space':
-                    props.isStop ? start() : stop()
+                case 'Enter':
+                    props.isStop ? props.start() : props.stop()
                     break;
                 default:
                     break;
@@ -87,18 +38,18 @@ export const GameArea = (props) => {
         return () => {
             document.removeEventListener('keypress', onKeypress);
         };
-    }, [down, left, props.isStop, right, start, stop, up]);
+    }, [props, props.isStop]);
 
     return (
         <div className={style.gameArea}>
             {/*{props.minusLife()}*/}
             {props.eatApple()}
             {props.bodyCollision()}
-            <button onClick={left}>Left</button>
-            <button onClick={right}>Right</button>
-            <button onClick={up}>Up</button>
-            <button onClick={down}>Down</button>
-            <button onClick={props.isStop ? start : stop}>Start / Stop</button>
+            <button onClick={props.left}>Left</button>
+            <button onClick={props.right}>Right</button>
+            <button onClick={props.up}>Up</button>
+            <button onClick={props.down}>Down</button>
+            <button onClick={props.isStop ? props.start : props.stop}>Start / Stop</button>
             <svg className={style.canvas}
                  id='canvas'
                  viewBox={props.viewBox}>

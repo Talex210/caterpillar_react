@@ -32,24 +32,53 @@ class GameAreaContainer extends React.Component {
         this.props.setStop(stop);*/
     }
 
-    setStop = (stop) => {
-        this.props.setStop(stop);
-    }
-
     right = () => {
-        this.props.moveRight();
-    }
-
-    up = () => {
-        this.props.moveUp();
-    }
-
-    down = () => {
-        this.props.moveDown();
+        clearInterval(this.props.intervalStop);
+        let stop = setInterval(this.props.moveRight, 125);
+        this.props.setStop(stop)
     }
 
     left = () => {
-        this.props.moveLeft();
+        clearInterval(this.props.intervalStop);
+        let stop = setInterval(this.props.moveLeft, 125);
+        this.props.setStop(stop)
+    }
+
+    up = () => {
+        clearInterval(this.props.intervalStop);
+        let stop = setInterval(this.props.moveUp, 125);
+        this.props.setStop(stop)
+    }
+
+    down = () => {
+        clearInterval(this.props.intervalStop);
+        let stop = setInterval(this.props.moveDown, 125);
+        this.props.setStop(stop)
+    }
+
+    stop = () => {
+        this.props.setStartStop(true);
+        clearInterval(this.props.intervalStop);
+    }
+
+    start = () => {
+        this.props.setStartStop(false);
+        switch (this.props.direction) {
+            case 'right':
+                this.right();
+                break;
+            case 'left':
+                this.left();
+                break;
+            case 'up':
+                this.up();
+                break;
+            case 'down':
+                this.down();
+                break;
+            default:
+                break;
+        }
     }
 
     bodyCollision = () => {
@@ -97,9 +126,9 @@ class GameAreaContainer extends React.Component {
                           right={this.right}
                           down={this.down}
                           left={this.left}
-                          direction={this.props.direction}
+                          stop={this.stop}
+                          start={this.start}
                           isStop={this.props.isStop}
-                          setStartStop={this.props.setStartStop}
                     // minusLife={this.minusLife2}
                 />
             </>
