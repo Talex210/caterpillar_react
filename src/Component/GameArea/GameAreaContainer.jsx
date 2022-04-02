@@ -3,13 +3,13 @@ import React from 'react';
 import {GameArea} from './GameArea';
 import {
     IsThereCollision,
+    moveApple,
     moveDown,
     moveLeft,
     moveRight,
     moveUp,
     setStartStop,
     setStop,
-    plusLength, //??
     setStopCollision
 } from '../../Redux/GameAreaReducer';
 
@@ -19,6 +19,7 @@ class GameAreaContainer extends React.Component {
     componentDidMount() {
         let stop = setInterval(this.props.IsThereCollision, 100);
         this.props.setStopCollision(stop);
+        setInterval(this.props.moveApple, 130);
     }
 
     right = () => {
@@ -78,17 +79,10 @@ class GameAreaContainer extends React.Component {
         }
     }
 
-    eatApple = () => {
-        if (this.headSnakeX === this.props.apple.x && this.headSnakeY === this.props.apple.y) {
-            this.props.plusLength(this.snakeLength + 1);
-        }
-    }
-
     render() {
         return (
             <>
-                {this.props.isCollision ? clearInterval(this.props.intervalStop) : null}
-                {this.props.isCollision ? clearInterval(this.props.intervalCollision) : null}
+                {this.props.isCollision ? (clearInterval(this.props.intervalStop), clearInterval(this.props.intervalCollision)) : null}
                 <GameArea viewBox={this.viewBox}
                           width={this.props.width}
                           blockSize={this.props.blockSize}
@@ -115,7 +109,6 @@ const mapStateToProps = (state) => {
         height: state.gameArea.height,
         apple: state.gameArea.apple,
         snake: state.gameArea.snake,
-        // snakeLength: state.header.snakeLength,
         intervalStop: state.gameArea.intervalStop,
         isCollision: state.gameArea.isCollision,
         direction: state.gameArea.direction,
@@ -125,5 +118,5 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, {
-    plusLength, moveRight, setStop, IsThereCollision, moveUp, moveDown, moveLeft, setStartStop, setStopCollision
+    moveRight, setStop, IsThereCollision, moveUp, moveDown, moveLeft, setStartStop, setStopCollision, moveApple
 })(GameAreaContainer)
