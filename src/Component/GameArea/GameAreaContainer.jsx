@@ -1,7 +1,6 @@
 import {connect} from 'react-redux';
 import React from 'react';
 import {GameArea} from './GameArea';
-import {minusLife, plusLength} from '../../Redux/HeaderReducer';
 import {
     IsThereCollision,
     moveDown,
@@ -9,14 +8,17 @@ import {
     moveRight,
     moveUp,
     setStartStop,
-    setStop
+    setStop,
+    plusLength, //??
+    setStopCollision
 } from '../../Redux/GameAreaReducer';
 
 class GameAreaContainer extends React.Component {
     viewBox = [0, 0, this.props.width, this.props.height];
 
     componentDidMount() {
-        setInterval(this.props.IsThereCollision, 100);
+        let stop = setInterval(this.props.IsThereCollision, 100);
+        this.props.setStopCollision(stop);
     }
 
     right = () => {
@@ -86,13 +88,13 @@ class GameAreaContainer extends React.Component {
         return (
             <>
                 {this.props.isCollision ? clearInterval(this.props.intervalStop) : null}
+                {this.props.isCollision ? clearInterval(this.props.intervalCollision) : null}
                 <GameArea viewBox={this.viewBox}
                           width={this.props.width}
                           blockSize={this.props.blockSize}
                           height={this.props.height}
                           apple={this.props.apple}
                           snake={this.props.snake}
-                          eatApple={this.eatApple}
                           right={this.right}
                           left={this.left}
                           up={this.up}
@@ -100,7 +102,6 @@ class GameAreaContainer extends React.Component {
                           stop={this.stop}
                           start={this.start}
                           isStop={this.props.isStop}
-                          // direction={this.props.direction}
                 />
             </>
         )
@@ -114,15 +115,15 @@ const mapStateToProps = (state) => {
         height: state.gameArea.height,
         apple: state.gameArea.apple,
         snake: state.gameArea.snake,
-        life: state.header.life,
-        snakeLength: state.header.snakeLength,
+        // snakeLength: state.header.snakeLength,
         intervalStop: state.gameArea.intervalStop,
         isCollision: state.gameArea.isCollision,
         direction: state.gameArea.direction,
-        isStop: state.gameArea.isStop
+        isStop: state.gameArea.isStop,
+        intervalCollision: state.gameArea.intervalCollision
     }
 }
 
 export default connect(mapStateToProps, {
-    minusLife, plusLength, moveRight, setStop, IsThereCollision, moveUp, moveDown, moveLeft, setStartStop
+    plusLength, moveRight, setStop, IsThereCollision, moveUp, moveDown, moveLeft, setStartStop, setStopCollision
 })(GameAreaContainer)

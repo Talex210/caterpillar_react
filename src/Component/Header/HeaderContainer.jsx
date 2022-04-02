@@ -14,8 +14,8 @@ class HeaderContainer extends React.Component {
 const mapStateToProps = (state) => {
     return {
         nameApp: state.header.nameApp,
-        life: state.header.life,
-        snakeLength: state.header.snakeLength
+        life: state.gameArea.life,
+        snakeLength: state.gameArea.snakeLength
     }
 }
 

@@ -5,6 +5,8 @@ const DOWN = 'DOWN';
 const STOP = 'STOP';
 const COLLISION = 'COLLISION';
 const BUTTON_START_STOP = 'BUTTON_START_STOP';
+const PLUS_LENGTH = 'PLUS-LENGTH'; // ??
+const STOP_COLLISION = 'STOP_COLLISION';
 
 let initialState = {
     width: Math.trunc(window.innerWidth / 100) * 100, // нужно разобраться, что бы игра не выходила за видимий экрна
@@ -21,7 +23,10 @@ let initialState = {
     direction: 'right',
     intervalStop: 0,
     isCollision: false,
-    isStop: true
+    isStop: true,
+    snakeLength: 7, //??
+    life: 4,
+    intervalCollision: 0
 }
 
 export const GameAreaReducer = (state = initialState, action) => {
@@ -85,25 +90,35 @@ export const GameAreaReducer = (state = initialState, action) => {
             if (headSnakeX === 0 || headSnakeY === 0 || headSnakeX === widthInBlocks || headSnakeY === heightInBlocks) {
                 return {
                     ...state,
-                    isCollision: true
+                    isCollision: true,
+                    life: state.life - 1
                 }
             } else {
                 for (let i = 0; i < bodySnakeX.length; i++) {
                     if (bodySnakeX[i] === headSnakeX && bodySnakeY[i] === headSnakeY) {
                         return {
                             ...state,
-                            isCollision: true
+                            isCollision: true,
+                            life: state.life - 1
                         }
                     }
                 }
             }
             return state;
-        // this.props.minusLife(this.life - 1);
-
         case BUTTON_START_STOP:
             return {
                 ...state,
                 isStop: action.start_stop
+            }
+        case PLUS_LENGTH: // ??
+            return {
+                ...state,
+                snakeLength: action.changeLength
+            }
+        case STOP_COLLISION:
+            return {
+                ...state,
+                intervalCollision: action.stop
             }
         default:
             return state;
@@ -117,5 +132,7 @@ export const moveDown = () => ({type: DOWN});
 export const setStop = (stop) => ({type: STOP, stop});
 export const IsThereCollision = () => ({type: COLLISION});
 export const setStartStop = (start_stop) => ({type: BUTTON_START_STOP, start_stop});
+export const plusLength = (changeLength) => ({type: PLUS_LENGTH, changeLength}); // ??
+export const setStopCollision = (stop) => ({type: STOP_COLLISION, stop});
 
 window.initialState = initialState
