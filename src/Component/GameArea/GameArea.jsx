@@ -12,24 +12,24 @@ export const GameArea = (props) => {
                 case 'KeyD':
                 case 'Numpad6':
                     props.right()
-                    break;
+                    return;
                 case 'KeyA':
                 case 'Numpad4':
                     props.left()
-                    break;
+                    return;
                 case 'KeyW' :
                 case 'Numpad8':
                     props.up()
-                    break;
+                    return;
                 case 'KeyS':
                 case 'Numpad2':
                     props.down()
-                    break;
+                    return;
                 case 'Enter':
                     props.isStop ? props.start() : props.stop()
-                    break;
+                    return;
                 default:
-                    break;
+                    return;
             }
         }
 

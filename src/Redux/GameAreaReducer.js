@@ -43,6 +43,17 @@ export const GameAreaReducer = (state = initialState, action) => {
                 },
                 direction: 'right'
             }
+        case LEFT:
+            return {
+                ...state,
+                snake: {
+                    x: [...state.snake.x.slice(1, state.snake.x.length),
+                        state.snake.x[state.snake.x.length - 1] - 1],
+                    y: [...state.snake.y.slice(1, state.snake.y.length),
+                        state.snake.y[state.snake.y.length - 1]]
+                },
+                direction: 'left'
+            }
         case UP:
             return {
                 ...state,
@@ -64,17 +75,6 @@ export const GameAreaReducer = (state = initialState, action) => {
                         state.snake.y[state.snake.y.length - 1] + 1]
                 },
                 direction: 'down'
-            }
-        case LEFT:
-            return {
-                ...state,
-                snake: {
-                    x: [...state.snake.x.slice(1, state.snake.x.length),
-                        state.snake.x[state.snake.x.length - 1] - 1],
-                    y: [...state.snake.y.slice(1, state.snake.y.length),
-                        state.snake.y[state.snake.y.length - 1]]
-                },
-                direction: 'left'
             }
         case STOP:
             return {
@@ -111,9 +111,9 @@ export const GameAreaReducer = (state = initialState, action) => {
 }
 
 export const moveRight = () => ({type: RIGHT});
+export const moveLeft = () => ({type: LEFT});
 export const moveUp = () => ({type: UP});
 export const moveDown = () => ({type: DOWN});
-export const moveLeft = () => ({type: LEFT});
 export const setStop = (stop) => ({type: STOP, stop});
 export const IsThereCollision = () => ({type: COLLISION});
 export const setStartStop = (start_stop) => ({type: BUTTON_START_STOP, start_stop});

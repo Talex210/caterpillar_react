@@ -17,32 +17,38 @@ class GameAreaContainer extends React.Component {
 
     componentDidMount() {
         setInterval(this.props.IsThereCollision, 100);
-        /*let stop = setInterval(this.props.moveRight, 125);
-        this.props.setStop(stop);*/
     }
 
     right = () => {
-        clearInterval(this.props.intervalStop);
-        let stop = setInterval(this.props.moveRight, 125);
-        this.props.setStop(stop)
+        if (this.props.direction !== 'left') {
+            clearInterval(this.props.intervalStop);
+            let stop = setInterval(this.props.moveRight, 125);
+            this.props.setStop(stop)
+        }
     }
 
     left = () => {
-        clearInterval(this.props.intervalStop);
-        let stop = setInterval(this.props.moveLeft, 125);
-        this.props.setStop(stop)
+        if (this.props.direction !== 'right') {
+            clearInterval(this.props.intervalStop);
+            let stop = setInterval(this.props.moveLeft, 125);
+            this.props.setStop(stop)
+        }
     }
 
     up = () => {
-        clearInterval(this.props.intervalStop);
-        let stop = setInterval(this.props.moveUp, 125);
-        this.props.setStop(stop)
+        if (this.props.direction !== 'down') {
+            clearInterval(this.props.intervalStop);
+            let stop = setInterval(this.props.moveUp, 125);
+            this.props.setStop(stop)
+        }
     }
 
     down = () => {
-        clearInterval(this.props.intervalStop);
-        let stop = setInterval(this.props.moveDown, 125);
-        this.props.setStop(stop)
+        if (this.props.direction !== 'up') {
+            clearInterval(this.props.intervalStop);
+            let stop = setInterval(this.props.moveDown, 125);
+            this.props.setStop(stop)
+        }
     }
 
     stop = () => {
@@ -55,18 +61,18 @@ class GameAreaContainer extends React.Component {
         switch (this.props.direction) {
             case 'right':
                 this.right();
-                break;
+                return;
             case 'left':
                 this.left();
-                break;
+                return;
             case 'up':
                 this.up();
-                break;
+                return;
             case 'down':
                 this.down();
-                break;
+                return;
             default:
-                break;
+                return;
         }
     }
 
@@ -87,8 +93,6 @@ class GameAreaContainer extends React.Component {
                           apple={this.props.apple}
                           snake={this.props.snake}
                           eatApple={this.eatApple}
-                          intervalStop={this.props.intervalStop}
-                          setStop={this.setStop}
                           right={this.right}
                           left={this.left}
                           up={this.up}
@@ -96,6 +100,7 @@ class GameAreaContainer extends React.Component {
                           stop={this.stop}
                           start={this.start}
                           isStop={this.props.isStop}
+                          // direction={this.props.direction}
                 />
             </>
         )
