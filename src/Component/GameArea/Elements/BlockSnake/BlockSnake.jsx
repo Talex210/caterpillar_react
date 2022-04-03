@@ -4,11 +4,12 @@ export const BlockSnake = (props) => {
     return (
         <>
             {props.snake.x.map((x, i) =>
-                <rect
+                <circle
                     className={i === props.snake.x.length - 1 ? style.head : i % 2 === 0 ? style.bodyEven : style.bodyOdd}
-                    x={x * props.blockSize}
-                    y={props.snake.y[i] * props.blockSize} width={props.blockSize}
-                    height={props.blockSize} key={i}
+                    cx={x * props.blockSize  + props.blockSize / 2}
+                    cy={props.snake.y[i] * props.blockSize  + props.blockSize / 2}
+                    width={props.blockSize}
+                    height={props.blockSize} r={props.blockSize / 2} key={i}
                 />
             )}
         </>

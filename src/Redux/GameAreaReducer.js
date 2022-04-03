@@ -117,6 +117,10 @@ export const GameAreaReducer = (state = initialState, action) => {
                         return {
                             ...state,
                             snakeLength: state.snakeLength + 1,
+                            apple: {
+                                y: Math.floor(Math.random() * (heightInBlocks - 2)) + 1,
+                                x: Math.floor(Math.random() * (widthInBlocks - 2)) + 1
+                            },
                             snake: {
                                 x: [...state.snake.x.slice(0, state.snake.x.length),
                                     state.snake.x[state.snake.x.length - 1] + 1],
@@ -128,6 +132,10 @@ export const GameAreaReducer = (state = initialState, action) => {
                         return {
                             ...state,
                             snakeLength: state.snakeLength + 1,
+                            apple: {
+                                y: Math.floor(Math.random() * (heightInBlocks - 2)) + 1,
+                                x: Math.floor(Math.random() * (widthInBlocks - 2)) + 1
+                            },
                             snake: {
                                 x: [...state.snake.x.slice(0, state.snake.x.length),
                                     state.snake.x[state.snake.x.length - 1] - 1],
@@ -139,6 +147,10 @@ export const GameAreaReducer = (state = initialState, action) => {
                         return {
                             ...state,
                             snakeLength: state.snakeLength + 1,
+                            apple: {
+                                y: Math.floor(Math.random() * (heightInBlocks - 2)) + 1,
+                                x: Math.floor(Math.random() * (widthInBlocks - 2)) + 1
+                            },
                             snake: {
                                 x: [...state.snake.x.slice(0, state.snake.x.length),
                                     state.snake.x[state.snake.x.length - 1]],
@@ -150,6 +162,10 @@ export const GameAreaReducer = (state = initialState, action) => {
                         return {
                             ...state,
                             snakeLength: state.snakeLength + 1,
+                            apple: {
+                                y: Math.floor(Math.random() * (heightInBlocks - 2)) + 1,
+                                x: Math.floor(Math.random() * (widthInBlocks - 2)) + 1
+                            },
                             snake: {
                                 x: [...state.snake.x.slice(0, state.snake.x.length),
                                     state.snake.x[state.snake.x.length - 1]],
