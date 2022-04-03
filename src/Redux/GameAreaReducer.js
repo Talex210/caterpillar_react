@@ -13,8 +13,8 @@ let initialState = {
     height: Math.trunc(window.innerHeight / 100) * 100,
     blockSize: 20,
     snake: {
-        x: [12, 13, 14, 15, 15, 15, 16],
-        y: [15, 15, 15, 15, 14, 13, 13]
+        x: [12, 13, 14],
+        y: [15, 15, 15]
     },
     apple: {
         x: 18,
@@ -24,7 +24,7 @@ let initialState = {
     intervalStop: 0,
     isCollision: false,
     isStop: true,
-    snakeLength: 7,
+    snakeLength: 3,
     life: 4,
     intervalCollision: 0
 }
@@ -112,9 +112,53 @@ export const GameAreaReducer = (state = initialState, action) => {
             }
         case EAT_APPLE:
             if (headSnakeX === state.apple.x && headSnakeY === state.apple.y) {
-                return {
-                    ...state,
-                    snakeLength: state.snakeLength + 1
+                switch (state.direction) {
+                    case 'right':
+                        return {
+                            ...state,
+                            snakeLength: state.snakeLength + 1,
+                            snake: {
+                                x: [...state.snake.x.slice(0, state.snake.x.length),
+                                    state.snake.x[state.snake.x.length - 1] + 1],
+                                y: [...state.snake.y.slice(0, state.snake.y.length),
+                                    state.snake.y[state.snake.y.length - 1]]
+                            }
+                        }
+                    case 'left':
+                        return {
+                            ...state,
+                            snakeLength: state.snakeLength + 1,
+                            snake: {
+                                x: [...state.snake.x.slice(0, state.snake.x.length),
+                                    state.snake.x[state.snake.x.length - 1] - 1],
+                                y: [...state.snake.y.slice(0, state.snake.y.length),
+                                    state.snake.y[state.snake.y.length - 1]]
+                            }
+                        }
+                    case 'up':
+                        return {
+                            ...state,
+                            snakeLength: state.snakeLength + 1,
+                            snake: {
+                                x: [...state.snake.x.slice(0, state.snake.x.length),
+                                    state.snake.x[state.snake.x.length - 1]],
+                                y: [...state.snake.y.slice(0, state.snake.y.length),
+                                    state.snake.y[state.snake.y.length - 1] - 1]
+                            }
+                        }
+                    case 'down':
+                        return {
+                            ...state,
+                            snakeLength: state.snakeLength + 1,
+                            snake: {
+                                x: [...state.snake.x.slice(0, state.snake.x.length),
+                                    state.snake.x[state.snake.x.length - 1]],
+                                y: [...state.snake.y.slice(0, state.snake.y.length),
+                                    state.snake.y[state.snake.y.length - 1] + 1]
+                            }
+                        }
+                    default:
+                        return state;
                 }
             }
             return state;

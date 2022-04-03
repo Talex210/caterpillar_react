@@ -19,7 +19,7 @@ class GameAreaContainer extends React.Component {
     componentDidMount() {
         let stop = setInterval(this.props.IsThereCollision, 100);
         this.props.setStopCollision(stop);
-        setInterval(this.props.moveApple, 130);
+        setInterval(this.props.moveApple, 125);
     }
 
     right = () => {
