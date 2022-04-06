@@ -91,7 +91,13 @@ export const GameAreaReducer = (state = initialState, action) => {
                 return {
                     ...state,
                     isCollision: true,
-                    life: state.life - 1
+                    life: state.life - 1,
+                    snake: {
+                        x: [1, 2, 3],
+                        y: [3, 3, 3]
+                    },
+                    snakeLength: 3,
+                    direction: 'right'
                 }
             } else {
                 for (let i = 0; i < bodySnakeX.length; i++) {
@@ -99,7 +105,13 @@ export const GameAreaReducer = (state = initialState, action) => {
                         return {
                             ...state,
                             isCollision: true,
-                            life: state.life - 1
+                            life: state.life - 1,
+                            snake: {
+                                x: [1, 2, 3],
+                                y: [3, 3, 3]
+                            },
+                            snakeLength: 3,
+                            direction: 'right'
                         }
                     }
                 }
@@ -108,7 +120,8 @@ export const GameAreaReducer = (state = initialState, action) => {
         case BUTTON_START_STOP:
             return {
                 ...state,
-                isStop: action.start_stop
+                isStop: action.start_stop,
+                isCollision: false
             }
         case EAT_APPLE:
             if (headSnakeX === state.apple.x && headSnakeY === state.apple.y) {

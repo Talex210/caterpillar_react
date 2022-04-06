@@ -82,20 +82,22 @@ class GameAreaContainer extends React.Component {
     render() {
         return (
             <>
-                {this.props.isCollision ? (clearInterval(this.props.intervalStop), clearInterval(this.props.intervalCollision)) : null}
-                <GameArea viewBox={this.viewBox}
-                          width={this.props.width}
-                          blockSize={this.props.blockSize}
-                          height={this.props.height}
-                          apple={this.props.apple}
-                          snake={this.props.snake}
-                          right={this.right}
-                          left={this.left}
-                          up={this.up}
-                          down={this.down}
-                          stop={this.stop}
-                          start={this.start}
-                          isStop={this.props.isStop}
+                {this.props.isCollision ? (clearInterval(this.props.intervalStop),
+                    clearInterval(this.props.intervalCollision)) : setInterval(this.props.IsThereCollision, 100)}
+                <GameArea
+                    viewBox={this.viewBox}
+                    width={this.props.width}
+                    blockSize={this.props.blockSize}
+                    height={this.props.height}
+                    apple={this.props.apple}
+                    snake={this.props.snake}
+                    right={this.right}
+                    left={this.left}
+                    up={this.up}
+                    down={this.down}
+                    stop={this.stop}
+                    start={this.start}
+                    isStop={this.props.isStop}
                 />
             </>
         )

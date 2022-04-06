@@ -25,7 +25,7 @@ export const GameArea = (props) => {
                 case 'Numpad2':
                     props.down()
                     return;
-                case 'Enter':
+                case 'Space':
                     props.isStop ? props.start() : props.stop()
                     return;
                 default:
