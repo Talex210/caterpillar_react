@@ -9,16 +9,16 @@ const EAT_APPLE = 'EAT_APPLE';
 const STOP_COLLISION = 'STOP_COLLISION';
 
 let initialState = {
-    width: Math.trunc(window.innerWidth / 100) * 100, // нужно разобраться, что бы игра не выходила за видимий экрна
-    height: Math.trunc(window.innerHeight / 100) * 100,
-    blockSize: 20,
+    width: Math.trunc(window.innerWidth / 100) * 100,
+    height: Math.trunc(window.innerHeight / 100) * 75,
+    blockSize: 15, // на основе window.innerWidth вычеслить размер блока
     snake: {
-        x: [12, 13, 14],
-        y: [15, 15, 15]
+        x: [1, 2, 3],
+        y: [3, 3, 3]
     },
     apple: {
-        x: 18,
-        y: 13
+        x: 5,
+        y: 5
     },
     direction: 'right',
     intervalStop: 0,
