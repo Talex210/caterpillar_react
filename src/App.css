@@ -2,7 +2,6 @@
     display: grid;
     grid-template-areas:
     'h'
-    'g'
-    'c';
-    grid-template-rows: 5fr 40fr 10fr;
+    'g';
+    grid-template-rows: 5fr 40fr;
 }

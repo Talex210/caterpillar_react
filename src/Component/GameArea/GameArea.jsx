@@ -42,11 +42,6 @@ export const GameArea = (props) => {
 
     return (
         <div className={style.gameArea}>
-            <button onClick={props.left}>Left</button>
-            <button onClick={props.right}>Right</button>
-            <button onClick={props.up}>Up</button>
-            <button onClick={props.down}>Down</button>
-            <button onClick={props.isStop ? props.start : props.stop}>Start / Stop</button>
             <svg className={style.canvas}
                  id='canvas'
                  viewBox={props.viewBox}>
@@ -60,6 +55,13 @@ export const GameArea = (props) => {
                 <BlockSnake blockSize={props.blockSize} snake={props.snake}/>
                 <Apple apple={props.apple} blockSize={props.blockSize}/>
             </svg>
+            <div className={style.controlButton}>
+                <button onClick={props.left}>Left</button>
+                <button onClick={props.right}>Right</button>
+                <button onClick={props.up}>Up</button>
+                <button onClick={props.down}>Down</button>
+                <button onClick={props.isStop ? props.start : props.stop}>Start / Stop</button>
+            </div>
         </div>
     )
 }
