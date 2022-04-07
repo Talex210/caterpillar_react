@@ -9,16 +9,13 @@ import {
     moveRight,
     moveUp,
     setStartStop,
-    setStop,
-    setStopCollision
+    setStop
 } from '../../Redux/GameAreaReducer';
 
 class GameAreaContainer extends React.Component {
     viewBox = [0, 0, this.props.width, this.props.height];
 
     componentDidMount() {
-        /*let stop = setInterval(this.props.IsThereCollision, 100);
-        this.props.setStopCollision(stop);*/
         setInterval(this.props.moveApple, 125);
     }
 
@@ -85,29 +82,24 @@ class GameAreaContainer extends React.Component {
 
     render() {
         return (
-            <>
-                {/*{this.props.isCollision ? (clearInterval(this.props.intervalStop),
-                    clearInterval(this.props.intervalCollision)) : setTimeout(this.props.IsThereCollision, 100)}*/}
-                <GameArea
-                    viewBox={this.viewBox}
-                    width={this.props.width}
-                    blockSize={this.props.blockSize}
-                    height={this.props.height}
-                    apple={this.props.apple}
-                    snake={this.props.snake}
-                    right={this.right}
-                    left={this.left}
-                    up={this.up}
-                    down={this.down}
-                    stop={this.stop}
-                    start={this.start}
-                    isStop={this.props.isStop}
-                    isCollision={this.props.isCollision}
-                    intervalStop={this.props.intervalStop}
-                    intervalCollision={this.props.intervalCollision}
-                    collision={this.collision}
-                />
-            </>
+            <GameArea
+                viewBox={this.viewBox}
+                width={this.props.width}
+                blockSize={this.props.blockSize}
+                height={this.props.height}
+                apple={this.props.apple}
+                snake={this.props.snake}
+                right={this.right}
+                left={this.left}
+                up={this.up}
+                down={this.down}
+                stop={this.stop}
+                start={this.start}
+                isStop={this.props.isStop}
+                isCollision={this.props.isCollision}
+                intervalStop={this.props.intervalStop}
+                collision={this.collision}
+            />
         )
     }
 }
@@ -122,11 +114,10 @@ const mapStateToProps = (state) => {
         intervalStop: state.gameArea.intervalStop,
         isCollision: state.gameArea.isCollision,
         direction: state.gameArea.direction,
-        isStop: state.gameArea.isStop,
-        intervalCollision: state.gameArea.intervalCollision
+        isStop: state.gameArea.isStop
     }
 }
 
 export default connect(mapStateToProps, {
-    moveRight, setStop, IsThereCollision, moveUp, moveDown, moveLeft, setStartStop, setStopCollision, moveApple
+    moveRight, setStop, IsThereCollision, moveUp, moveDown, moveLeft, setStartStop, moveApple
 })(GameAreaContainer)

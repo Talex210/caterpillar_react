@@ -6,7 +6,6 @@ const STOP = 'STOP';
 const COLLISION = 'COLLISION';
 const BUTTON_START_STOP = 'BUTTON_START_STOP';
 const EAT_APPLE = 'EAT_APPLE';
-const STOP_COLLISION = 'STOP_COLLISION';
 
 let initialState = {
     width: Math.trunc(window.innerWidth / 100) * 100,
@@ -25,8 +24,7 @@ let initialState = {
     isCollision: false,
     isStop: true,
     snakeLength: 3,
-    life: 4,
-    intervalCollision: 0
+    life: 4
 }
 
 export const GameAreaReducer = (state = initialState, action) => {
@@ -191,11 +189,6 @@ export const GameAreaReducer = (state = initialState, action) => {
                 }
             }
             return state;
-        case STOP_COLLISION:
-            return {
-                ...state,
-                intervalCollision: action.stop
-            }
         default:
             return state;
     }
@@ -209,6 +202,5 @@ export const setStop = (stop) => ({type: STOP, stop});
 export const IsThereCollision = () => ({type: COLLISION});
 export const setStartStop = (start_stop) => ({type: BUTTON_START_STOP, start_stop});
 export const moveApple = () => ({type: EAT_APPLE});
-export const setStopCollision = (stop) => ({type: STOP_COLLISION, stop});
 
 window.initialState = initialState
