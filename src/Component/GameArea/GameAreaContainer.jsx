@@ -17,8 +17,8 @@ class GameAreaContainer extends React.Component {
     viewBox = [0, 0, this.props.width, this.props.height];
 
     componentDidMount() {
-        let stop = setInterval(this.props.IsThereCollision, 100);
-        this.props.setStopCollision(stop);
+        /*let stop = setInterval(this.props.IsThereCollision, 100);
+        this.props.setStopCollision(stop);*/
         setInterval(this.props.moveApple, 125);
     }
 
@@ -79,11 +79,15 @@ class GameAreaContainer extends React.Component {
         }
     }
 
+    collision = () => {
+        this.props.IsThereCollision()
+    }
+
     render() {
         return (
             <>
-                {this.props.isCollision ? (clearInterval(this.props.intervalStop),
-                    clearInterval(this.props.intervalCollision)) : setInterval(this.props.IsThereCollision, 100)}
+                {/*{this.props.isCollision ? (clearInterval(this.props.intervalStop),
+                    clearInterval(this.props.intervalCollision)) : setTimeout(this.props.IsThereCollision, 100)}*/}
                 <GameArea
                     viewBox={this.viewBox}
                     width={this.props.width}
@@ -98,6 +102,10 @@ class GameAreaContainer extends React.Component {
                     stop={this.stop}
                     start={this.start}
                     isStop={this.props.isStop}
+                    isCollision={this.props.isCollision}
+                    intervalStop={this.props.intervalStop}
+                    intervalCollision={this.props.intervalCollision}
+                    collision={this.collision}
                 />
             </>
         )
