@@ -20,7 +20,7 @@ class GameAreaContainer extends React.Component {
     }
 
     right = () => {
-        if (this.props.direction !== 'left') {
+        if (this.props.direction !== 'left' && this.props.isStop === false) {
             clearInterval(this.props.intervalStop);
             let stop = setInterval(this.props.moveRight, 125);
             this.props.setStop(stop)
@@ -28,7 +28,7 @@ class GameAreaContainer extends React.Component {
     }
 
     left = () => {
-        if (this.props.direction !== 'right') {
+        if (this.props.direction !== 'right' && this.props.isStop === false) {
             clearInterval(this.props.intervalStop);
             let stop = setInterval(this.props.moveLeft, 125);
             this.props.setStop(stop)
@@ -36,7 +36,7 @@ class GameAreaContainer extends React.Component {
     }
 
     up = () => {
-        if (this.props.direction !== 'down') {
+        if (this.props.direction !== 'down' && this.props.isStop === false) {
             clearInterval(this.props.intervalStop);
             let stop = setInterval(this.props.moveUp, 125);
             this.props.setStop(stop)
@@ -44,7 +44,7 @@ class GameAreaContainer extends React.Component {
     }
 
     down = () => {
-        if (this.props.direction !== 'up') {
+        if (this.props.direction !== 'up' && this.props.isStop === false) {
             clearInterval(this.props.intervalStop);
             let stop = setInterval(this.props.moveDown, 125);
             this.props.setStop(stop)
