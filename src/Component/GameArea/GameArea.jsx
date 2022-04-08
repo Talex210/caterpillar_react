@@ -3,6 +3,7 @@ import {Border} from './Elements/Border/Border';
 import {BlockSnake} from './Elements/BlockSnake/BlockSnake';
 import {Apple} from "./Elements/Apple/Apple";
 import {useEffect} from "react";
+import {GameOver} from "./Elements/GameOver/GameOver";
 
 export const GameArea = (props) => {
 
@@ -46,24 +47,20 @@ export const GameArea = (props) => {
                 {props.isCollision ? clearInterval(props.intervalStop) : setTimeout(props.collision, 100)}
             </div>
             <svg className={style.canvas}
-                 id='canvas'
                  viewBox={props.viewBox}>
-                {/*Test work for yourself*/}
-                {/*<circle cx={100} cy={20} r={20}/>
-                <rect x={50} y={100} width={200} height={200}/>*/}
-                <Border width={props.width}
-                        blockSize={props.blockSize}
-                        height={props.height}
-                />
+                {props.life === 0 ? <GameOver width={props.width} height={props.height}/> : null}
+                <Border width={props.width} blockSize={props.blockSize} height={props.height}/>
                 <BlockSnake blockSize={props.blockSize} snake={props.snake}/>
                 <Apple apple={props.apple} blockSize={props.blockSize}/>
             </svg>
             <div className={style.controlButton}>
-                <button onClick={props.left}>Left</button>
-                <button onClick={props.right}>Right</button>
-                <button onClick={props.up}>Up</button>
-                <button onClick={props.down}>Down</button>
-                <button onClick={props.isStop ? props.start : props.stop}>Start / Stop</button>
+                <button onClick={props.left} disabled={props.life === 0 ? 'disabled' : null}>Left</button>
+                <button onClick={props.right} disabled={props.life === 0 ? 'disabled' : null}>Right</button>
+                <button onClick={props.up} disabled={props.life === 0 ? 'disabled' : null}>Up</button>
+                <button onClick={props.down} disabled={props.life === 0 ? 'disabled' : null}>Down</button>
+                <button onClick={props.isStop ? props.start : props.stop}
+                        disabled={props.life === 0 ? 'disabled' : null}>Start / Stop
+                </button>
             </div>
         </div>
     )

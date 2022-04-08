@@ -57,22 +57,24 @@ class GameAreaContainer extends React.Component {
     }
 
     start = () => {
-        this.props.setStartStop(false);
-        switch (this.props.direction) {
-            case 'right':
-                this.right();
-                return;
-            case 'left':
-                this.left();
-                return;
-            case 'up':
-                this.up();
-                return;
-            case 'down':
-                this.down();
-                return;
-            default:
-                return;
+        if (this.props.life !== 0) {
+            this.props.setStartStop(false);
+            switch (this.props.direction) {
+                case 'right':
+                    this.right();
+                    return;
+                case 'left':
+                    this.left();
+                    return;
+                case 'up':
+                    this.up();
+                    return;
+                case 'down':
+                    this.down();
+                    return;
+                default:
+                    return;
+            }
         }
     }
 
@@ -99,6 +101,7 @@ class GameAreaContainer extends React.Component {
                 isCollision={this.props.isCollision}
                 intervalStop={this.props.intervalStop}
                 collision={this.collision}
+                life={this.props.life}
             />
         )
     }
@@ -114,7 +117,8 @@ const mapStateToProps = (state) => {
         intervalStop: state.gameArea.intervalStop,
         isCollision: state.gameArea.isCollision,
         direction: state.gameArea.direction,
-        isStop: state.gameArea.isStop
+        isStop: state.gameArea.isStop,
+        life: state.gameArea.life
     }
 }
 

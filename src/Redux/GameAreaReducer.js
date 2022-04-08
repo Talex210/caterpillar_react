@@ -24,7 +24,7 @@ let initialState = {
     isCollision: false,
     isStop: true,
     snakeLength: 3,
-    life: 4
+    life: 1
 }
 
 export const GameAreaReducer = (state = initialState, action) => {
