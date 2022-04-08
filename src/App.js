@@ -5,8 +5,8 @@ import GameAreaContainer from "./Component/GameArea/GameAreaContainer";
 function App() {
     return (
         <div className='app-wrapper'>
-            <HeaderContainer />
-            <GameAreaContainer />
+            <HeaderContainer/>
+            <GameAreaContainer/>
         </div>
     );
 }
