@@ -10,7 +10,7 @@ const EAT_APPLE = 'EAT_APPLE';
 let initialState = {
     width: Math.trunc(window.innerWidth / 100) * 100,
     height: Math.trunc(window.innerHeight / 100) * 75,
-    blockSize: 15, // на основе window.innerWidth вычеслить размер блока
+    blockSize: Math.trunc(window.innerWidth / 50),
     snake: {
         x: [1, 2, 3],
         y: [3, 3, 3]
@@ -141,7 +141,7 @@ export const GameAreaReducer = (state = initialState, action) => {
                         return {
                             ...state,
                             snakeLength: state.snakeLength + 1,
-                            timeout: state.timeout - 5,
+                            timeout: state.timeout - 10,
                             apple: {
                                 y: Math.floor(Math.random() * (heightInBlocks - 2)) + 1,
                                 x: Math.floor(Math.random() * (widthInBlocks - 2)) + 1
@@ -157,7 +157,7 @@ export const GameAreaReducer = (state = initialState, action) => {
                         return {
                             ...state,
                             snakeLength: state.snakeLength + 1,
-                            timeout: state.timeout - 5,
+                            timeout: state.timeout - 10,
                             apple: {
                                 y: Math.floor(Math.random() * (heightInBlocks - 2)) + 1,
                                 x: Math.floor(Math.random() * (widthInBlocks - 2)) + 1
@@ -173,7 +173,7 @@ export const GameAreaReducer = (state = initialState, action) => {
                         return {
                             ...state,
                             snakeLength: state.snakeLength + 1,
-                            timeout: state.timeout - 5,
+                            timeout: state.timeout - 10,
                             apple: {
                                 y: Math.floor(Math.random() * (heightInBlocks - 2)) + 1,
                                 x: Math.floor(Math.random() * (widthInBlocks - 2)) + 1
@@ -189,7 +189,7 @@ export const GameAreaReducer = (state = initialState, action) => {
                         return {
                             ...state,
                             snakeLength: state.snakeLength + 1,
-                            timeout: state.timeout - 5,
+                            timeout: state.timeout - 10,
                             apple: {
                                 y: Math.floor(Math.random() * (heightInBlocks - 2)) + 1,
                                 x: Math.floor(Math.random() * (widthInBlocks - 2)) + 1
