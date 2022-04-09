@@ -44,7 +44,8 @@ export const GameArea = (props) => {
     return (
         <div className={style.gameArea}>
             <div className={style.collision}>
-                {props.isCollision ? clearInterval(props.intervalStop) : setTimeout(props.collision, 100)}
+                {props.isCollision ? clearInterval(props.intervalStop) :
+                    (setTimeout(props.collision, props.timeout), setTimeout(props.moveApple, props.timeout))}
             </div>
             <svg className={style.canvas}
                  viewBox={props.viewBox}>

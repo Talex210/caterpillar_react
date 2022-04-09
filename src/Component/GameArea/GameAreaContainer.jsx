@@ -15,14 +15,10 @@ import {
 class GameAreaContainer extends React.Component {
     viewBox = [0, 0, this.props.width, this.props.height];
 
-    componentDidMount() {
-        setInterval(this.props.moveApple, 125);
-    }
-
     right = () => {
         if (this.props.direction !== 'left' && this.props.isStop === false) {
             clearInterval(this.props.intervalStop);
-            let stop = setInterval(this.props.moveRight, 125);
+            let stop = setInterval(this.props.moveRight, this.props.timeout);
             this.props.setStop(stop)
         }
     }
@@ -30,7 +26,7 @@ class GameAreaContainer extends React.Component {
     left = () => {
         if (this.props.direction !== 'right' && this.props.isStop === false) {
             clearInterval(this.props.intervalStop);
-            let stop = setInterval(this.props.moveLeft, 125);
+            let stop = setInterval(this.props.moveLeft, this.props.timeout);
             this.props.setStop(stop)
         }
     }
@@ -38,7 +34,7 @@ class GameAreaContainer extends React.Component {
     up = () => {
         if (this.props.direction !== 'down' && this.props.isStop === false) {
             clearInterval(this.props.intervalStop);
-            let stop = setInterval(this.props.moveUp, 125);
+            let stop = setInterval(this.props.moveUp, this.props.timeout);
             this.props.setStop(stop)
         }
     }
@@ -46,7 +42,7 @@ class GameAreaContainer extends React.Component {
     down = () => {
         if (this.props.direction !== 'up' && this.props.isStop === false) {
             clearInterval(this.props.intervalStop);
-            let stop = setInterval(this.props.moveDown, 125);
+            let stop = setInterval(this.props.moveDown, this.props.timeout);
             this.props.setStop(stop)
         }
     }
@@ -79,7 +75,11 @@ class GameAreaContainer extends React.Component {
     }
 
     collision = () => {
-        this.props.IsThereCollision()
+        this.props.IsThereCollision();
+    }
+
+    moveApple = () => {
+        this.props.moveApple();
     }
 
     render() {
@@ -102,6 +102,8 @@ class GameAreaContainer extends React.Component {
                 intervalStop={this.props.intervalStop}
                 collision={this.collision}
                 life={this.props.life}
+                timeout={this.props.timeout}
+                moveApple={this.moveApple}
             />
         )
     }
@@ -118,7 +120,8 @@ const mapStateToProps = (state) => {
         isCollision: state.gameArea.isCollision,
         direction: state.gameArea.direction,
         isStop: state.gameArea.isStop,
-        life: state.gameArea.life
+        life: state.gameArea.life,
+        timeout: state.gameArea.timeout
     }
 }
 
