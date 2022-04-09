@@ -99,21 +99,20 @@ export const GameAreaReducer = (state = initialState, action) => {
                     direction: 'right',
                     timeout: 300
                 }
-            } else {
-                for (let i = 0; i < bodySnakeX.length; i++) {
-                    if (bodySnakeX[i] === headSnakeX && bodySnakeY[i] === headSnakeY) {
-                        return {
-                            ...state,
-                            isCollision: true,
-                            life: state.life - 1,
-                            snake: {
-                                x: [1, 2, 3],
-                                y: [3, 3, 3]
-                            },
-                            snakeLength: 3,
-                            direction: 'right',
-                            timeout: 300
-                        }
+            }
+            for (let i = 0; i < bodySnakeX.length; i++) {
+                if (bodySnakeX[i] === headSnakeX && bodySnakeY[i] === headSnakeY) {
+                    return {
+                        ...state,
+                        isCollision: true,
+                        life: state.life - 1,
+                        snake: {
+                            x: [1, 2, 3],
+                            y: [3, 3, 3]
+                        },
+                        snakeLength: 3,
+                        direction: 'right',
+                        timeout: 300
                     }
                 }
             }
@@ -125,6 +124,17 @@ export const GameAreaReducer = (state = initialState, action) => {
                 isCollision: false
             }
         case EAT_APPLE:
+            for (let i = 0; i < bodySnakeX.length; i++) {
+                if (bodySnakeX[i] === state.apple.x && bodySnakeY[i] === state.apple.y) {
+                    return {
+                        ...state,
+                        apple: {
+                            y: Math.floor(Math.random() * (heightInBlocks - 2)) + 1,
+                            x: Math.floor(Math.random() * (widthInBlocks - 2)) + 1
+                        }
+                    }
+                }
+            }
             if (headSnakeX === state.apple.x && headSnakeY === state.apple.y) {
                 switch (state.direction) {
                     case 'right':
