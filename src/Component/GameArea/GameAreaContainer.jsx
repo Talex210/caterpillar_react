@@ -15,32 +15,32 @@ import {
 class GameAreaContainer extends React.Component {
     viewBox = [0, 0, this.props.width, this.props.height];
 
-    right = (isStop2) => {
-        if ((this.props.direction !== 'left' && this.props.isStop === false) || !isStop2) {
+    right = (isStop) => {
+        if (this.props.direction !== 'left' && !isStop) {
             clearInterval(this.props.intervalStop);
             let stop = setInterval(this.props.moveRight, this.props.timeout);
             this.props.setStop(stop)
         }
     }
 
-    left = (isStop2) => {
-        if ((this.props.direction !== 'right' && this.props.isStop === false)  || !isStop2) {
+    left = (isStop) => {
+        if (this.props.direction !== 'right' && !isStop) {
             clearInterval(this.props.intervalStop);
             let stop = setInterval(this.props.moveLeft, this.props.timeout);
             this.props.setStop(stop)
         }
     }
 
-    up = (isStop2) => {
-        if ((this.props.direction !== 'down' && this.props.isStop === false)  || !isStop2) {
+    up = (isStop) => {
+        if (this.props.direction !== 'down' && !isStop) {
             clearInterval(this.props.intervalStop);
             let stop = setInterval(this.props.moveUp, this.props.timeout);
             this.props.setStop(stop)
         }
     }
 
-    down = (isStop2) => {
-        if ((this.props.direction !== 'up' && this.props.isStop === false)  || !isStop2) {
+    down = (isStop) => {
+        if (this.props.direction !== 'up' && !isStop) {
             clearInterval(this.props.intervalStop);
             let stop = setInterval(this.props.moveDown, this.props.timeout);
             this.props.setStop(stop)
@@ -48,25 +48,25 @@ class GameAreaContainer extends React.Component {
     }
 
     stop = () => {
-        this.props.setStartStop(true);
+        // this.props.setStartStop(true);
         clearInterval(this.props.intervalStop);
     }
 
-    start = (isStop2) => {
+    start = (isStop) => {
         if (this.props.life !== 0) {
-            this.props.setStartStop(false);
+            // this.props.setStartStop(false);
             switch (this.props.direction) {
                 case 'right':
-                    this.right(isStop2);
+                    this.right(isStop);
                     return;
                 case 'left':
-                    this.left(isStop2);
+                    this.left(isStop);
                     return;
                 case 'up':
-                    this.up(isStop2);
+                    this.up(isStop);
                     return;
                 case 'down':
-                    this.down(isStop2);
+                    this.down(isStop);
                     return;
                 default:
                     return;
@@ -97,7 +97,7 @@ class GameAreaContainer extends React.Component {
                 down={this.down}
                 stop={this.stop}
                 start={this.start}
-                isStop={this.props.isStop}
+                // isStop={this.props.isStop}
                 isCollision={this.props.isCollision}
                 intervalStop={this.props.intervalStop}
                 collision={this.collision}
@@ -119,7 +119,7 @@ const mapStateToProps = (state) => {
         intervalStop: state.gameArea.intervalStop,
         isCollision: state.gameArea.isCollision,
         direction: state.gameArea.direction,
-        isStop: state.gameArea.isStop,
+        // isStop: state.gameArea.isStop,
         life: state.gameArea.life,
         timeout: state.gameArea.timeout
     }

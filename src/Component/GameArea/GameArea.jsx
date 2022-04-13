@@ -6,28 +6,40 @@ import {useEffect, useState} from 'react';
 import {GameOver} from './Elements/GameOver/GameOver';
 
 export const GameArea = (props) => {
+    let isStop, setStop, start, stop;
+    [isStop, setStop] = useState(true);
+    start = () => {
+        setStop(false)
+        props.start(false)
+    };
+    stop = () => {
+        setStop(true)
+        props.stop()
+        props.start(true)
+    };
+
 
     useEffect(() => {
         const onKeypress = e => {
             switch (e.code) {
                 case 'KeyD':
                 case 'Numpad6':
-                    props.right()
+                    props.right(isStop)
                     return;
                 case 'KeyA':
                 case 'Numpad4':
-                    props.left()
+                    props.left(isStop)
                     return;
                 case 'KeyW' :
                 case 'Numpad8':
-                    props.up()
+                    props.up(isStop)
                     return;
                 case 'KeyS':
                 case 'Numpad2':
-                    props.down()
+                    props.down(isStop)
                     return;
                 case 'Space':
-                    props.isStop ? props.start() : props.stop()
+                    isStop ? start() : stop()
                     return;
                 default:
                     return;
@@ -39,18 +51,22 @@ export const GameArea = (props) => {
         return () => {
             document.removeEventListener('keypress', onKeypress);
         };
-    }, [props, props.isStop]);
+    }, [isStop, props, start, stop]);
 
-    const [isStop, setStop] = useState(props.isStop)
-
-    const setFalse = () => {
-        setStop(false)
-        props.start(false)
+    const left = () => {
+        props.left(isStop)
     }
 
-    const setTrue = () => {
-        setStop(true)
-        props.stop()
+    const right = () => {
+        props.right(isStop)
+    }
+
+    const up = () => {
+        props.up(isStop)
+    }
+
+    const down = () => {
+        props.down(isStop)
     }
 
     return (
@@ -66,14 +82,11 @@ export const GameArea = (props) => {
                 <Apple apple={props.apple} blockSize={props.blockSize}/>
             </svg>
             <div className={style.controlButton}>
-                <button onClick={props.left} disabled={props.life === 0 ? 'disabled' : null}>Left</button>
-                <button onClick={props.right} disabled={props.life === 0 ? 'disabled' : null}>Right</button>
-                <button onClick={props.up} disabled={props.life === 0 ? 'disabled' : null}>Up</button>
-                <button onClick={props.down} disabled={props.life === 0 ? 'disabled' : null}>Down</button>
-                <button
-                    onClick={isStop ? setFalse : setTrue} // onClick={isStop ? (() => setStop(false), props.start) : (() => setStop(true), props.stop)}
-                    disabled={props.life === 0 ? 'disabled' : null}
-                >
+                <button onClick={left} disabled={props.life === 0 ? 'disabled' : null}>Left</button>
+                <button onClick={right} disabled={props.life === 0 ? 'disabled' : null}>Right</button>
+                <button onClick={up} disabled={props.life === 0 ? 'disabled' : null}>Up</button>
+                <button onClick={down} disabled={props.life === 0 ? 'disabled' : null}>Down</button>
+                <button onClick={isStop ? start : stop} disabled={props.life === 0 ? 'disabled' : null}>
                     Start / Stop
                 </button>
             </div>
