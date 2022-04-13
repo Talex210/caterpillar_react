@@ -15,32 +15,32 @@ import {
 class GameAreaContainer extends React.Component {
     viewBox = [0, 0, this.props.width, this.props.height];
 
-    right = () => {
-        if (this.props.direction !== 'left' && this.props.isStop === false) {
+    right = (isStop2) => {
+        if ((this.props.direction !== 'left' && this.props.isStop === false) || !isStop2) {
             clearInterval(this.props.intervalStop);
             let stop = setInterval(this.props.moveRight, this.props.timeout);
             this.props.setStop(stop)
         }
     }
 
-    left = () => {
-        if (this.props.direction !== 'right' && this.props.isStop === false) {
+    left = (isStop2) => {
+        if ((this.props.direction !== 'right' && this.props.isStop === false)  || !isStop2) {
             clearInterval(this.props.intervalStop);
             let stop = setInterval(this.props.moveLeft, this.props.timeout);
             this.props.setStop(stop)
         }
     }
 
-    up = () => {
-        if (this.props.direction !== 'down' && this.props.isStop === false) {
+    up = (isStop2) => {
+        if ((this.props.direction !== 'down' && this.props.isStop === false)  || !isStop2) {
             clearInterval(this.props.intervalStop);
             let stop = setInterval(this.props.moveUp, this.props.timeout);
             this.props.setStop(stop)
         }
     }
 
-    down = () => {
-        if (this.props.direction !== 'up' && this.props.isStop === false) {
+    down = (isStop2) => {
+        if ((this.props.direction !== 'up' && this.props.isStop === false)  || !isStop2) {
             clearInterval(this.props.intervalStop);
             let stop = setInterval(this.props.moveDown, this.props.timeout);
             this.props.setStop(stop)
@@ -52,21 +52,21 @@ class GameAreaContainer extends React.Component {
         clearInterval(this.props.intervalStop);
     }
 
-    start = () => {
+    start = (isStop2) => {
         if (this.props.life !== 0) {
             this.props.setStartStop(false);
             switch (this.props.direction) {
                 case 'right':
-                    this.right();
+                    this.right(isStop2);
                     return;
                 case 'left':
-                    this.left();
+                    this.left(isStop2);
                     return;
                 case 'up':
-                    this.up();
+                    this.up(isStop2);
                     return;
                 case 'down':
-                    this.down();
+                    this.down(isStop2);
                     return;
                 default:
                     return;
