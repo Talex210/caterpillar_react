@@ -9,37 +9,36 @@ export const GameArea = (props) => {
     let isStop, setStop, start, stop;
     [isStop, setStop] = useState(true);
     start = () => {
-        setStop(false)
-        props.start(false)
+        setStop(false);
+        props.start(false);
     };
     stop = () => {
-        setStop(true)
-        props.stop()
-        props.start(true)
+        setStop(true);
+        props.stop();
+        props.start(true);
     };
-
 
     useEffect(() => {
         const onKeypress = e => {
             switch (e.code) {
                 case 'KeyD':
                 case 'Numpad6':
-                    props.right(isStop)
+                    props.right(isStop);
                     return;
                 case 'KeyA':
                 case 'Numpad4':
-                    props.left(isStop)
+                    props.left(isStop);
                     return;
                 case 'KeyW' :
                 case 'Numpad8':
-                    props.up(isStop)
+                    props.up(isStop);
                     return;
                 case 'KeyS':
                 case 'Numpad2':
-                    props.down(isStop)
+                    props.down(isStop);
                     return;
                 case 'Space':
-                    isStop ? start() : stop()
+                    isStop ? start() : stop();
                     return;
                 default:
                     return;
@@ -54,19 +53,19 @@ export const GameArea = (props) => {
     }, [isStop, props, start, stop]);
 
     const left = () => {
-        props.left(isStop)
+        props.left(isStop);
     }
 
     const right = () => {
-        props.right(isStop)
+        props.right(isStop);
     }
 
     const up = () => {
-        props.up(isStop)
+        props.up(isStop);
     }
 
     const down = () => {
-        props.down(isStop)
+        props.down(isStop);
     }
 
     return (

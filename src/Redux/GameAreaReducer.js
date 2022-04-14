@@ -4,7 +4,6 @@ const UP = 'UP';
 const DOWN = 'DOWN';
 const STOP = 'STOP';
 const COLLISION = 'COLLISION';
-const BUTTON_START_STOP = 'BUTTON_START_STOP';
 const EAT_APPLE = 'EAT_APPLE';
 
 let initialState = {
@@ -22,7 +21,6 @@ let initialState = {
     direction: 'right',
     intervalStop: 0,
     isCollision: false,
-    isStop: true,
     snakeLength: 3,
     life: 5,
     timeout: 300
@@ -121,12 +119,6 @@ export const GameAreaReducer = (state = initialState, action) => {
                     isCollision: false
                 }
             }
-        case BUTTON_START_STOP:
-            return {
-                ...state,
-                isStop: action.start_stop,
-                isCollision: false
-            }
         case EAT_APPLE:
             for (let i = 0; i < bodySnakeX.length; i++) {
                 if (bodySnakeX[i] === state.apple.x && bodySnakeY[i] === state.apple.y) {
@@ -221,7 +213,4 @@ export const moveUp = () => ({type: UP});
 export const moveDown = () => ({type: DOWN});
 export const setStop = (stop) => ({type: STOP, stop});
 export const IsThereCollision = () => ({type: COLLISION});
-export const setStartStop = (start_stop) => ({type: BUTTON_START_STOP, start_stop});
 export const moveApple = () => ({type: EAT_APPLE});
-
-window.initialState = initialState

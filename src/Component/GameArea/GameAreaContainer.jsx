@@ -8,7 +8,6 @@ import {
     moveLeft,
     moveRight,
     moveUp,
-    setStartStop,
     setStop
 } from '../../Redux/GameAreaReducer';
 
@@ -48,13 +47,11 @@ class GameAreaContainer extends React.Component {
     }
 
     stop = () => {
-        // this.props.setStartStop(true);
         clearInterval(this.props.intervalStop);
     }
 
     start = (isStop) => {
         if (this.props.life !== 0) {
-            // this.props.setStartStop(false);
             switch (this.props.direction) {
                 case 'right':
                     this.right(isStop);
@@ -97,7 +94,6 @@ class GameAreaContainer extends React.Component {
                 down={this.down}
                 stop={this.stop}
                 start={this.start}
-                // isStop={this.props.isStop}
                 isCollision={this.props.isCollision}
                 intervalStop={this.props.intervalStop}
                 collision={this.collision}
@@ -119,12 +115,11 @@ const mapStateToProps = (state) => {
         intervalStop: state.gameArea.intervalStop,
         isCollision: state.gameArea.isCollision,
         direction: state.gameArea.direction,
-        // isStop: state.gameArea.isStop,
         life: state.gameArea.life,
         timeout: state.gameArea.timeout
     }
 }
 
 export default connect(mapStateToProps, {
-    moveRight, setStop, IsThereCollision, moveUp, moveDown, moveLeft, setStartStop, moveApple
+    moveRight, setStop, IsThereCollision, moveUp, moveDown, moveLeft, moveApple
 })(GameAreaContainer)
