@@ -11,12 +11,12 @@ export const GameArea = (props) => {
     start = () => {
         setStop(false);
         props.start(false);
-    };
+    }
     stop = () => {
         setStop(true);
         props.stop();
         props.start(true);
-    };
+    }
 
     useEffect(() => {
         const onKeypress = e => {
@@ -49,7 +49,7 @@ export const GameArea = (props) => {
 
         return () => {
             document.removeEventListener('keypress', onKeypress);
-        };
+        }
     }, [isStop, props, start, stop]);
 
     const left = () => {
@@ -71,7 +71,7 @@ export const GameArea = (props) => {
     return (
         <div className={style.gameArea}>
             <div className={style.collision}>
-                {props.isCollision ? clearInterval(props.intervalStop) :
+                {props.isCollision ? (clearInterval(props.intervalStop), setTimeout(stop, props.timeout)) :
                     (setTimeout(props.collision, props.timeout), setTimeout(props.moveApple, props.timeout))}
             </div>
             <svg viewBox={props.viewBox}>
