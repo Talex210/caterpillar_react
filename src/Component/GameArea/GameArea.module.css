@@ -3,17 +3,6 @@
     background: darkgreen;
 }
 
-.controlButton {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.controlButton button {
-    width: 10vw;
-    border-radius: 10vw;
-}
-
 .collision {
     display: none;
 }

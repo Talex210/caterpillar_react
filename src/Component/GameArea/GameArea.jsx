@@ -4,6 +4,7 @@ import {BlockSnake} from './Elements/BlockSnake/BlockSnake';
 import {Apple} from './Elements/Apple/Apple';
 import {useEffect, useState} from 'react';
 import {GameOver} from './Elements/GameOver/GameOver';
+import {ControlButtons} from "./Elements/ControlButtons/ControlButtons";
 
 export const GameArea = (props) => {
     let isStop, setStop, start, stop;
@@ -44,13 +45,11 @@ export const GameArea = (props) => {
                     return;
             }
         }
-
         document.addEventListener('keypress', onKeypress);
-
         return () => {
             document.removeEventListener('keypress', onKeypress);
         }
-    }, [isStop, props, start, stop]);
+    }, [isStop, props, start, stop])
 
     const left = () => {
         props.left(isStop);
@@ -80,14 +79,9 @@ export const GameArea = (props) => {
                 <BlockSnake blockSize={props.blockSize} snake={props.snake}/>
                 <Apple apple={props.apple} blockSize={props.blockSize}/>
             </svg>
-            <div className={style.controlButton}>
-                <button onClick={left} disabled={props.life === 0 ? 'disabled' : null}>Left</button>
-                <button onClick={right} disabled={props.life === 0 ? 'disabled' : null}>Right</button>
-                <button onClick={up} disabled={props.life === 0 ? 'disabled' : null}>Up</button>
-                <button onClick={down} disabled={props.life === 0 ? 'disabled' : null}>Down</button>
-                <button onClick={isStop ? start : stop} disabled={props.life === 0 ? 'disabled' : null}>
-                    Start / Stop
-                </button>
+            <div>
+                <ControlButtons life={props.life} left={left} right={right} up={up} down={down} isStop={isStop}
+                                start={start} stop={stop}/>
             </div>
         </div>
     )
