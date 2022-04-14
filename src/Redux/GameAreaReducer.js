@@ -85,7 +85,8 @@ export const GameAreaReducer = (state = initialState, action) => {
             }
         case COLLISION:
             for (let i = 0; i < bodySnakeX.length; i++) {
-                if (bodySnakeX[i] === headSnakeX && bodySnakeY[i] === headSnakeY) {
+                if ((bodySnakeX[i] === headSnakeX && bodySnakeY[i] === headSnakeY) || (headSnakeX === 0 ||
+                    headSnakeY === 0 || headSnakeX === widthInBlocks || headSnakeY === heightInBlocks)) {
                     return {
                         ...state,
                         isCollision: true,
@@ -100,24 +101,9 @@ export const GameAreaReducer = (state = initialState, action) => {
                     }
                 }
             }
-            if (headSnakeX === 0 || headSnakeY === 0 || headSnakeX === widthInBlocks || headSnakeY === heightInBlocks) {
-                return {
-                    ...state,
-                    isCollision: true,
-                    life: state.life - 1,
-                    snake: {
-                        x: [1, 2, 3],
-                        y: [3, 3, 3]
-                    },
-                    snakeLength: 3,
-                    direction: 'right',
-                    timeout: 300
-                }
-            } else {
-                return {
-                    ...state,
-                    isCollision: false
-                }
+            return {
+                ...state,
+                isCollision: false
             }
         case EAT_APPLE:
             for (let i = 0; i < bodySnakeX.length; i++) {
