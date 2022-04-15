@@ -5,6 +5,19 @@
 }
 
 .controlButtons button {
-    width: 10vw;
+    display: flex;
+    justify-content: center;
+    width: 6vw;
+    border-radius: 10vw;
+    background-color: #ffffff;
+    cursor: grab;
+}
+
+.controlButtons button:active {
+    cursor: grabbing;
+}
+
+.controlButtons  img{
+    width: 5vw;
     border-radius: 10vw;
 }

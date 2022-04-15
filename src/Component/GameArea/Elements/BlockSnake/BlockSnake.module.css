@@ -1,11 +1,11 @@
 .head {
-    fill: red;
+    fill: #CC5500;
 }
 
 .bodyEven {
-    fill: orange;
+    fill: #E49B0F;
 }
 
 .bodyOdd {
-    fill: black;
+    fill: #C7D0CC;
 }

@@ -5,3 +5,7 @@
 .text {
     font-size: 3vw;
 }
+
+.gameOver, .text {
+    fill: #ffffff;
+}

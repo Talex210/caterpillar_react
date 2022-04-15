@@ -1,8 +1,10 @@
 .header {
     grid-area: h;
+    background: #240935;
+    color: #ffffff;
 }
 
-.positions {
+.positions {  /*сделать grid разбить на фракции? или flex-grow?*/
     display: flex;
     justify-content: space-between;
 }
