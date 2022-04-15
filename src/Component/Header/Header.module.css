@@ -4,11 +4,23 @@
     color: #ffffff;
 }
 
-.positions {  /*сделать grid разбить на фракции? или flex-grow?*/
+.positions {
     display: flex;
-    justify-content: space-between;
+    /*justify-content: space-around;*/
+    gap: 11vw;
 }
 
 .life img {
     width: 4vw;
+    margin: 1.5vw 1vw 0 1vw;
+}
+
+.nameApp {
+    /*margin-top: 0.5vw;*/
+    font-size: 5vw;
+}
+
+.length {
+    /* сверху | справа | снизу | слева */
+    margin: 1vw 0 0 17.5vw;
 }
