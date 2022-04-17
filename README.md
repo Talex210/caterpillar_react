@@ -1,72 +1,47 @@
-# Here will be a description of the application and how to play.
+# DESCRIPTION OF THE GAME
 
-# Getting Started with Create React App
+---
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## [Open the game on the website](https://talex210.github.io/snake_react/)
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## `!` When changing the screen resolution => `F5` REFRESH THE PAGE `!` 
 
-### `npm start`
+### This is so that the playing field becomes the correct size
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Snake controls from the keyboard
 
-### `npm test`
+### `W` - move up || `S` - move down || `A` - move left || `D` - move right
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### `SPACE` - start \ stop move
 
-### `npm run build`
+### or control the graphic keys at the bottom of the screen
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Rules of the game:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+ - collision with the frame of the field and the body of the snake **=>** minus life.
+ - the snake ate an apple **=>** its length is *+ 1* **&&** the movement speed increases by *25 ms*.
+ - lives are over **=>** the game is over.
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Features of the game
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- it is impossible to set the reverse direction of the current movement.
+- in case of collision **=>** the snake returns to its original position **&&** the speed of movement and direction are reset.
+- no lives **=>** all processes are stopped **&&** graphical control buttons are disabled **&&** the inscription Game Over appears.
+- the snake ate an apple **=>** the apple in the border of the field changes its position to random **&&** the apple does not appear in the snake's body.
+- snake length counter.
+- the snake's body alternates colors.
+- the game can be paused.
+- the game is adaptive to the screen resolution.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Enjoy the game =)
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
