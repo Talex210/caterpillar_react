@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/snake_react/static/css/main.2501af1c.css",
+    "main.js": "/snake_react/static/js/main.1d2439fc.js",
+    "static/media/start.png": "/snake_react/static/media/start.d85e3cd8c9f85a5968b9.png",
+    "static/media/stop.png": "/snake_react/static/media/stop.ca3653ffbf709112a173.png",
+    "static/media/heartFull.png": "/snake_react/static/media/heartFull.18b208e62a59f37a80b4.png",
+    "index.html": "/snake_react/index.html",
+    "main.2501af1c.css.map": "/snake_react/static/css/main.2501af1c.css.map",
+    "main.1d2439fc.js.map": "/snake_react/static/js/main.1d2439fc.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2501af1c.css",
+    "static/js/main.1d2439fc.js"
+  ]
+}
