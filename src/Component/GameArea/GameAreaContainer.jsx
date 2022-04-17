@@ -17,7 +17,7 @@ class GameAreaContainer extends React.Component {
     right = (isStop) => {
         if (this.props.direction !== 'left' && !isStop) {
             clearInterval(this.props.intervalStop);
-            let stop = setInterval(this.props.moveRight, this.props.timeout);
+            let stop = setInterval(this.props.moveRight, this.props.speed);
             this.props.setStop(stop)
         }
     }
@@ -25,7 +25,7 @@ class GameAreaContainer extends React.Component {
     left = (isStop) => {
         if (this.props.direction !== 'right' && !isStop) {
             clearInterval(this.props.intervalStop);
-            let stop = setInterval(this.props.moveLeft, this.props.timeout);
+            let stop = setInterval(this.props.moveLeft, this.props.speed);
             this.props.setStop(stop)
         }
     }
@@ -33,7 +33,7 @@ class GameAreaContainer extends React.Component {
     up = (isStop) => {
         if (this.props.direction !== 'down' && !isStop) {
             clearInterval(this.props.intervalStop);
-            let stop = setInterval(this.props.moveUp, this.props.timeout);
+            let stop = setInterval(this.props.moveUp, this.props.speed);
             this.props.setStop(stop)
         }
     }
@@ -41,7 +41,7 @@ class GameAreaContainer extends React.Component {
     down = (isStop) => {
         if (this.props.direction !== 'up' && !isStop) {
             clearInterval(this.props.intervalStop);
-            let stop = setInterval(this.props.moveDown, this.props.timeout);
+            let stop = setInterval(this.props.moveDown, this.props.speed);
             this.props.setStop(stop)
         }
     }
@@ -98,7 +98,7 @@ class GameAreaContainer extends React.Component {
                 intervalStop={this.props.intervalStop}
                 collision={this.collision}
                 life={this.props.life}
-                timeout={this.props.timeout}
+                speed={this.props.speed}
                 moveApple={this.moveApple}
             />
         )
@@ -116,7 +116,7 @@ const mapStateToProps = (state) => {
         isCollision: state.gameArea.isCollision,
         direction: state.gameArea.direction,
         life: state.gameArea.life,
-        timeout: state.gameArea.timeout
+        speed: state.gameArea.speed
     }
 }
 

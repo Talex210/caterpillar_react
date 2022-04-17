@@ -3,5 +3,5 @@
     grid-template-areas:
     'h'
     'g';
-    grid-template-rows: 2fr 50fr;
+    grid-template-rows: 1fr 50fr;
 }

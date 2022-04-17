@@ -6,8 +6,7 @@
 
 .positions {
     display: flex;
-    /*justify-content: space-around;*/
-    gap: 11vw;
+    gap: 11.9vw;
 }
 
 .life img {
@@ -22,5 +21,5 @@
 
 .length {
     /* сверху | справа | снизу | слева */
-    margin: 1vw 0 0 17.5vw;
+    margin: 1vw 0 0 16vw;
 }

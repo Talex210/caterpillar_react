@@ -4,7 +4,7 @@
     'u u u'
     'l st r'
     'd d d';
-    grid-template-columns: 10fr 1.5fr 10fr;
+    grid-template-columns: 10fr 1fr 10fr;
     justify-items: center;
     grid-gap: 1vw;
 }
@@ -35,7 +35,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 6vw;
+    width: 4vw;
     border-radius: 10vw;
     background-color: #ffffff;
     cursor: grab;
@@ -46,6 +46,6 @@
 }
 
 .controlButtons img {
-    width: 5vw;
+    width: 3vw;
     border-radius: 10vw;
 }

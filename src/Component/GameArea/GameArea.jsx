@@ -70,8 +70,8 @@ export const GameArea = (props) => {
     return (
         <div className={style.gameArea}>
             <div className={style.collision}>
-                {props.isCollision ? (clearInterval(props.intervalStop), setTimeout(stop, props.timeout)) :
-                    (setTimeout(props.collision, props.timeout), setTimeout(props.moveApple, props.timeout))}
+                {props.isCollision ? (clearInterval(props.intervalStop), setTimeout(stop, props.speed)) :
+                    (setTimeout(props.collision, props.speed), setTimeout(props.moveApple, props.speed))}
             </div>
             <svg viewBox={props.viewBox}>
                 {props.life === 0 ? <GameOver width={props.width} height={props.height}/> : null}
