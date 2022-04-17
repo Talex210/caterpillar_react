@@ -3,8 +3,8 @@ import left from '../../../../assets/img/left.png'
 import right from '../../../../assets/img/right.png'
 import up from '../../../../assets/img/up.png'
 import down from '../../../../assets/img/down.png'
-import start from '../../../../assets/img/start.gif'
-import stop from '../../../../assets/img/stop.gif'
+import start from '../../../../assets/img/start.png'
+import stop from '../../../../assets/img/stop.png'
 
 export const ControlButtons = (props) => {
     return (
