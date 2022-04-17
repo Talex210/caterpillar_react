@@ -1,12 +1,40 @@
 .controlButtons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-areas:
+    'u u u'
+    'l st r'
+    'd d d';
+    grid-template-columns: 10fr 1.5fr 10fr;
+    justify-items: center;
+    grid-gap: 1vw;
+}
+
+.left {
+    grid-area: l;
+    justify-self: end;
+}
+
+.right {
+    grid-area: r;
+    justify-self: start;
+}
+
+.up {
+    grid-area: u;
+}
+
+.down {
+    grid-area: d;
+}
+
+.startStop {
+    grid-area: st;
 }
 
 .controlButtons button {
     display: flex;
     justify-content: center;
+    align-items: center;
     width: 6vw;
     border-radius: 10vw;
     background-color: #ffffff;
@@ -17,7 +45,7 @@
     cursor: grabbing;
 }
 
-.controlButtons  img{
+.controlButtons img {
     width: 5vw;
     border-radius: 10vw;
 }
