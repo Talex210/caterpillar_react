@@ -22,7 +22,7 @@ let initialState = {
     intervalStop: 0,
     isCollision: false,
     snakeLength: 3,
-    life: 5,
+    life: 3,
     speed: 300
 }
 
