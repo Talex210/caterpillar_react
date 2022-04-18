@@ -8,7 +8,7 @@ const EAT_APPLE = 'EAT_APPLE';
 
 let initialState = {
     width: Math.trunc(window.innerWidth / 100) * 100,
-    height: Math.trunc(window.innerHeight / 100) * 55,
+    height: Math.trunc(window.innerHeight / 100) * 57,
     blockSize: Math.trunc(window.innerWidth / 70),
     snake: {
         x: [1, 2, 3],
