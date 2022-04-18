@@ -81,7 +81,7 @@ export const GameArea = (props) => {
             </svg>
             <div>
                 <ControlButtons life={props.life} left={left} right={right} up={up} down={down} isStop={isStop}
-                                start={start} stop={stop}/>
+                                start={start} stop={stop} width={props.width}/>
             </div>
         </div>
     )

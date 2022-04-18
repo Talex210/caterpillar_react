@@ -49,3 +49,29 @@
     width: 3vw;
     border-radius: 10vw;
 }
+
+.controlButtons_smallWidth button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 8vw;
+    border-radius: 10vw;
+    background-color: #ffffff;
+    cursor: grab;
+}
+
+.controlButtons_smallWidth img {
+    width: 7vw;
+    border-radius: 10vw;
+}
+
+.controlButtons_smallWidth {
+    display: grid;
+    grid-template-areas:
+    'u u u'
+    'l st r'
+    'd d d';
+    grid-template-columns: 10fr 1fr 10fr;
+    justify-items: center;
+    grid-gap: 1vw;
+}
