@@ -20,7 +20,7 @@ export const Header = (props) => {
                         <img alt='heart full' src={l ? heartFull : heartEmpty} key={i}/>
                     )}
                 </div>
-                <div className={style.nameApp}>SNAKE</div>
+                <div className={style.nameApp}>CATERPILLAR</div>
                 <div className={style.length}>Length: {props.snakeLength}</div>
             </div>
         </div>

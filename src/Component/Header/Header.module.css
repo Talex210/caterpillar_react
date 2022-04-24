@@ -1,22 +1,22 @@
 .header {
     grid-area: h;
-    background: #240935;
-    color: #ffffff;
+    background: #efe978; /*f0e96d*/
+    color: rgba(205, 127, 50, 0.51);
 }
 
 .positions {
     display: flex;
-    gap: 11.9vw;
+    gap: 3vw;
 }
 
 .life img {
-    width: 4vw;
-    margin: 1.5vw 1vw 0 1vw;
+    width: 3vw;
+    margin: 1.5vw 1vw 0 0.5vw;
 }
 
 .nameApp {
     /*margin-top: 0.5vw;*/
-    font-size: 5vw;
+    font-size: 4.5vw;
 }
 
 .length {
