@@ -7,5 +7,10 @@
 }
 
 .footer {
-
+    display: grid;
+    grid-template-areas:
+    'l c ls';
+    grid-template-columns: 10fr 6fr 10fr;
+    /*justify-items: center;*/
+    /*grid-gap: 1vw;*/
 }

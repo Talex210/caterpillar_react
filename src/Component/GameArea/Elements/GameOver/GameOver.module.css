@@ -8,4 +8,5 @@
 
 .gameOver, .text {
     fill: #CD7F32FF;
+    cursor: default;
 }

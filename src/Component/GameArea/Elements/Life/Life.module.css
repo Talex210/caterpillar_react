@@ -1,8 +1,12 @@
 .life {
-
+    grid-area: l;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .life img {
-    width: 3vw;
-    margin: 1.5vw 1vw 0 0.5vw;
+    width: 5.5vw;
+    /* сверху | справа | снизу | слева */
+    margin: 0 1vw 0 0;
 }

@@ -1,4 +1,5 @@
 .controlButtons {
+    grid-area: c;
     display: grid;
     grid-template-areas:
     'u u u'
