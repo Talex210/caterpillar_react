@@ -1,7 +1,7 @@
 .header {
     grid-area: h;
     background: #efe978; /*f0e96d*/
-    color: rgba(205, 127, 50, 0.51);
+    color: #CD7F32FF; /*rgba(205, 127, 50, 0.50)*/
 }
 
 .positions {
