@@ -6,7 +6,9 @@ import {useEffect, useState} from 'react';
 import {GameOver} from './Elements/GameOver/GameOver';
 import {ControlButtons} from "./Elements/ControlButtons/ControlButtons";
 import {NameApp} from "./Elements/NameApp/NameApp";
-import {Header} from "./Elements/Header/Header";
+// import {Header} from "./Elements/Header/Header";
+import {Life} from "./Elements/Life/Life";
+import {SnakeLength} from "./Elements/SnakeLength/SnakeLength";
 
 export const GameArea = (props) => {
     let isStop, setStop, start, stop;
@@ -82,9 +84,13 @@ export const GameArea = (props) => {
                 <BlockSnake blockSize={props.blockSize} snake={props.snake}/>
                 <Apple apple={props.apple} blockSize={props.blockSize}/>
             </svg>
-            <ControlButtons life={props.life} left={left} right={right} up={up} down={down} isStop={isStop}
-                            start={start} stop={stop} width={props.width}/>
-            <Header life={props.life} snakeLength={props.snakeLength}/>
+            <div className={style.footer}>
+                <Life life={props.life}/>
+                <ControlButtons life={props.life} left={left} right={right} up={up} down={down} isStop={isStop}
+                                start={start} stop={stop} width={props.width}/>
+                <SnakeLength snakeLength={props.snakeLength}/>
+                {/*<Header life={props.life} snakeLength={props.snakeLength}/>*/} {/*не забыть удалить, вместе с элементом*/}
+            </div>
         </div>
     )
 }

@@ -10,10 +10,10 @@ body {
     -moz-osx-font-smoothing: grayscale;
     /*font-family: 'Roboto', sans-serif;*/
     font-family: 'Ultra', serif;
-    font-size: 2vw;
-    overflow: hidden;
-    /*height: 100vh;
-    width: 98vw;*/
+    /*font-size: 2vw;*/
+    /*overflow: hidden;*/
+    /*height: 100vh;*/
+    /*width: 100vw;*/
 }
 
 code {
