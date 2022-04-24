@@ -6,6 +6,7 @@ import {useEffect, useState} from 'react';
 import {GameOver} from './Elements/GameOver/GameOver';
 import {ControlButtons} from "./Elements/ControlButtons/ControlButtons";
 import {NameApp} from "./Elements/NameApp/NameApp";
+import {Header} from "./Elements/Header/Header";
 
 export const GameArea = (props) => {
     let isStop, setStop, start, stop;
@@ -81,10 +82,9 @@ export const GameArea = (props) => {
                 <BlockSnake blockSize={props.blockSize} snake={props.snake}/>
                 <Apple apple={props.apple} blockSize={props.blockSize}/>
             </svg>
-            <div>
-                <ControlButtons life={props.life} left={left} right={right} up={up} down={down} isStop={isStop}
-                                start={start} stop={stop} width={props.width}/>
-            </div>
+            <ControlButtons life={props.life} left={left} right={right} up={up} down={down} isStop={isStop}
+                            start={start} stop={stop} width={props.width}/>
+            <Header life={props.life} snakeLength={props.snakeLength}/>
         </div>
     )
 }

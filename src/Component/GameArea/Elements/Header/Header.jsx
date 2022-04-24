@@ -1,6 +1,6 @@
 import style from './Header.module.css'
-import heartFull from '../../assets/img/heartFull.png'
-import heartEmpty from '../../assets/img/heartEmpty.png'
+import heartFull from '../../../../assets/img/heartFull.png'
+import heartEmpty from '../../../../assets/img/heartEmpty.png'
 
 export const Header = (props) => {
     // animation of adding and removing life
@@ -20,7 +20,6 @@ export const Header = (props) => {
                         <img alt='heart full' src={l ? heartFull : heartEmpty} key={i}/>
                     )}
                 </div>
-                <div className={style.nameApp}>CATERPILLAR</div>
                 <div className={style.length}>Length: {props.snakeLength}</div>
             </div>
         </div>

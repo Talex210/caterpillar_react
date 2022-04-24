@@ -1,7 +1,5 @@
 .header {
-    grid-area: h;
-    background: #efe978; /*f0e96d*/
-    color: #CD7F32FF; /*rgba(205, 127, 50, 0.50)*/
+    color: #CD7F32FF;
 }
 
 .positions {
@@ -12,11 +10,6 @@
 .life img {
     width: 3vw;
     margin: 1.5vw 1vw 0 0.5vw;
-}
-
-.nameApp {
-    /*margin-top: 0.5vw;*/
-    font-size: 4.5vw;
 }
 
 .length {
