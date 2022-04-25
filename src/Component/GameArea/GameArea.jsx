@@ -6,7 +6,6 @@ import {useEffect, useState} from 'react';
 import {GameOver} from './Elements/GameOver/GameOver';
 import {ControlButtons} from "./Elements/ControlButtons/ControlButtons";
 import {NameApp} from "./Elements/NameApp/NameApp";
-// import {Header} from "./Elements/Header/Header";
 import {Life} from "./Elements/Life/Life";
 import {SnakeLength} from "./Elements/SnakeLength/SnakeLength";
 
@@ -89,7 +88,6 @@ export const GameArea = (props) => {
                 <ControlButtons life={props.life} left={left} right={right} up={up} down={down} isStop={isStop}
                                 start={start} stop={stop} width={props.width}/>
                 <SnakeLength snakeLength={props.snakeLength}/>
-                {/*<Header life={props.life} snakeLength={props.snakeLength}/>*/} {/*не забыть удалить, вместе с элементом*/}
             </div>
         </div>
     )
