@@ -5,6 +5,9 @@ import {Apple} from './Elements/Apple/Apple';
 import {useEffect, useState} from 'react';
 import {GameOver} from './Elements/GameOver/GameOver';
 import {ControlButtons} from "./Elements/ControlButtons/ControlButtons";
+import {NameApp} from "./Elements/NameApp/NameApp";
+import {Life} from "./Elements/Life/Life";
+import {SnakeLength} from "./Elements/SnakeLength/SnakeLength";
 
 export const GameArea = (props) => {
     let isStop, setStop, start, stop;
@@ -74,14 +77,17 @@ export const GameArea = (props) => {
                     (setTimeout(props.collision, props.speed), setTimeout(props.moveApple, props.speed))}
             </div>
             <svg viewBox={props.viewBox}>
-                {props.life === 0 ? <GameOver width={props.width} height={props.height}/> : null}
+                {props.life === 0 ? <GameOver width={props.width} height={props.height}/> :
+                    <NameApp width={props.width} height={props.height}/>}
                 <Border width={props.width} blockSize={props.blockSize} height={props.height}/>
                 <BlockSnake blockSize={props.blockSize} snake={props.snake}/>
                 <Apple apple={props.apple} blockSize={props.blockSize}/>
             </svg>
-            <div>
+            <div className={style.footer}>
+                <Life life={props.life}/>
                 <ControlButtons life={props.life} left={left} right={right} up={up} down={down} isStop={isStop}
-                                start={start} stop={stop}/>
+                                start={start} stop={stop} width={props.width}/>
+                <SnakeLength snakeLength={props.snakeLength}/>
             </div>
         </div>
     )

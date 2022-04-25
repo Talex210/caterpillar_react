@@ -1,8 +1,16 @@
 .gameArea {
-    grid-area: g;
-    background: #240935;
+    background: #efe978;
 }
 
 .collision {
     display: none;
+}
+
+.footer {
+    display: grid;
+    grid-template-areas:
+    'l c ls';
+    grid-template-columns: 10fr 6fr 10fr;
+    /*justify-items: center;*/
+    /*grid-gap: 1vw;*/
 }

@@ -100,6 +100,7 @@ class GameAreaContainer extends React.Component {
                 life={this.props.life}
                 speed={this.props.speed}
                 moveApple={this.moveApple}
+                snakeLength={this.props.snakeLength}
             />
         )
     }
@@ -116,7 +117,8 @@ const mapStateToProps = (state) => {
         isCollision: state.gameArea.isCollision,
         direction: state.gameArea.direction,
         life: state.gameArea.life,
-        speed: state.gameArea.speed
+        speed: state.gameArea.speed,
+        snakeLength: state.gameArea.snakeLength
     }
 }
 

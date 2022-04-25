@@ -1,11 +1,12 @@
 .gameOver {
-    font-size: 10vw;
+    font-size: 8vw;
 }
 
 .text {
-    font-size: 3vw;
+    font-size: 2vw;
 }
 
 .gameOver, .text {
-    fill: #ffffff;
+    fill: #CD7F32FF;
+    cursor: default;
 }

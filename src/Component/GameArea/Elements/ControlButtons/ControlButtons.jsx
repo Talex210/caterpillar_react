@@ -8,7 +8,7 @@ import stop from '../../../../assets/img/stop.png'
 
 export const ControlButtons = (props) => {
     return (
-        <div className={style.controlButtons}>
+        <div className={props.width <= 600 ? style.controlButtons_smallWidth : style.controlButtons}>
             <button className={style.left} onClick={props.left} disabled={props.life === 0 ? 'disabled' : null}>
                 <img alt={'button left'} src={left}/>
             </button>
