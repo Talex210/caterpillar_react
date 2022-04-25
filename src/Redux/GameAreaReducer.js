@@ -22,7 +22,9 @@ let initialState = {
     intervalStop: 0,
     isCollision: false,
     snakeLength: 3,
-    life: 3,
+    life: [true, true, true, true, true],
+    lifeCount: 1,
+    lifeEmpty: [false],
     speed: 300
 }
 
@@ -90,7 +92,9 @@ export const GameAreaReducer = (state = initialState, action) => {
                     return {
                         ...state,
                         isCollision: true,
-                        life: state.life - 1,
+                        life: [...state.life.slice(0, state.life.length - state.lifeCount), ...state.lifeEmpty],
+                        lifeCount: state.lifeCount + 1,
+                        lifeEmpty: [...state.lifeEmpty, false],
                         snake: {
                             x: [1, 2, 3],
                             y: [3, 3, 3]

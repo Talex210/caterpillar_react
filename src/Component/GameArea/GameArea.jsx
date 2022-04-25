@@ -13,8 +13,10 @@ export const GameArea = (props) => {
     let isStop, setStop, start, stop;
     [isStop, setStop] = useState(true);
     start = () => {
-        setStop(false);
-        props.start(false);
+        if (props.life[0] === true) {
+            setStop(false);
+            props.start(false);
+        }
     }
     stop = () => {
         setStop(true);
@@ -77,7 +79,7 @@ export const GameArea = (props) => {
                     (setTimeout(props.collision, props.speed), setTimeout(props.moveApple, props.speed))}
             </div>
             <svg viewBox={props.viewBox}>
-                {props.life === 0 ? <GameOver width={props.width} height={props.height}/> :
+                {props.life[0] === false ? <GameOver width={props.width} height={props.height}/> :
                     <NameApp width={props.width} height={props.height}/>}
                 <Border width={props.width} blockSize={props.blockSize} height={props.height}/>
                 <BlockSnake blockSize={props.blockSize} snake={props.snake}/>

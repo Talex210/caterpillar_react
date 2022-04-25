@@ -51,7 +51,7 @@ class GameAreaContainer extends React.Component {
     }
 
     start = (isStop) => {
-        if (this.props.life !== 0) {
+        if (this.props.life[0] === true) {
             switch (this.props.direction) {
                 case 'right':
                     this.right(isStop);

@@ -9,20 +9,20 @@ import stop from '../../../../assets/img/stop.png'
 export const ControlButtons = (props) => {
     return (
         <div className={props.width <= 600 ? style.controlButtons_smallWidth : style.controlButtons}>
-            <button className={style.left} onClick={props.left} disabled={props.life === 0 ? 'disabled' : null}>
+            <button className={style.left} onClick={props.left} disabled={props.life[0] === false ? 'disabled' : null}>
                 <img alt={'button left'} src={left}/>
             </button>
-            <button className={style.right} onClick={props.right} disabled={props.life === 0 ? 'disabled' : null}>
+            <button className={style.right} onClick={props.right} disabled={props.life[0] === false ? 'disabled' : null}>
                 <img alt={'button right'} src={right}/>
             </button>
-            <button className={style.up} onClick={props.up} disabled={props.life === 0 ? 'disabled' : null}>
+            <button className={style.up} onClick={props.up} disabled={props.life[0] === false ? 'disabled' : null}>
                 <img alt={'button up'} src={up}/>
             </button>
-            <button className={style.down} onClick={props.down} disabled={props.life === 0 ? 'disabled' : null}>
+            <button className={style.down} onClick={props.down} disabled={props.life[0] === false ? 'disabled' : null}>
                 <img alt={'button down'} src={down}/>
             </button>
             <button className={style.startStop} onClick={props.isStop ? props.start : props.stop}
-                    disabled={props.life === 0 ? 'disabled' : null}>
+                    disabled={props.life[0] === false ? 'disabled' : null}>
                 <img alt={'button start / stop'} src={props.isStop ? start : stop}/>
             </button>
         </div>
