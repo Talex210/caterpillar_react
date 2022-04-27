@@ -1,5 +1,9 @@
 .gameArea {
     background: #efe978;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 .collision {

@@ -5,11 +5,12 @@ const DOWN = 'DOWN';
 const STOP = 'STOP';
 const COLLISION = 'COLLISION';
 const EAT_APPLE = 'EAT_APPLE';
+// const REFRESH_PAGE = 'REFRESH_PAGE';
 
 let initialState = {
-    width: Math.trunc(window.innerWidth / 100) * 100,
-    height: Math.trunc(window.innerHeight / 100) * 57,
-    blockSize: Math.trunc(window.innerWidth / 70),
+    width: window.innerWidth, /*Math.trunc(window.innerWidth / 100) * 100*/
+    height: Math.trunc(window.innerHeight / 1.2), /*Math.trunc(window.innerHeight / 100) * 75  Math.trunc(window.innerHeight * 100 / 130)*/
+    blockSize: Math.trunc(window.innerHeight / 30), /*Math.trunc(window.innerWidth / 30)*/
     snake: {
         x: [1, 2, 3],
         y: [3, 3, 3]
@@ -36,6 +37,18 @@ export const GameAreaReducer = (state = initialState, action) => {
     let bodySnakeX = state.snake.x.slice(0, state.snake.x.length - 1);
     let bodySnakeY = state.snake.y.slice(0, state.snake.y.length - 1);
     switch (action.type) {
+        // case REFRESH_PAGE:
+            // debugger
+            /*if (state.width < state.width - 100 || state.width > state.width + 100) {
+                debugger*/
+                /*return {
+                    ...state,
+                    width: window.innerWidth,
+                    height:window.innerHeight,
+                    blockSize: Math.trunc(window.innerWidth / 70)
+                }*/
+            // }
+            // return state;
         case RIGHT:
             return {
                 ...state,
@@ -204,3 +217,4 @@ export const moveDown = () => ({type: DOWN});
 export const setStop = (stop) => ({type: STOP, stop});
 export const IsThereCollision = () => ({type: COLLISION});
 export const moveApple = () => ({type: EAT_APPLE});
+// export const refreshPage = () => ({type: REFRESH_PAGE});
