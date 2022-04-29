@@ -86,10 +86,10 @@ export const GameArea = (props) => {
                 <Apple apple={props.apple} blockSize={props.blockSize}/>
             </svg>
             <div className={style.footer}>
-                <Life life={props.life}/>
+                <Life life={props.life} width={props.width}/>
                 <ControlButtons life={props.life} left={left} right={right} up={up} down={down} isStop={isStop}
                                 start={start} stop={stop} width={props.width}/>
-                <SnakeLength snakeLength={props.snakeLength}/>
+                <SnakeLength snakeLength={props.snakeLength} width={props.width}/>
             </div>
         </div>
     )

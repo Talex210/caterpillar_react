@@ -22,7 +22,7 @@ let initialState = {
     direction: 'right',
     intervalStop: 0,
     isCollision: false,
-    snakeLength: 3,
+    snakeLength: 10,
     life: [true, true, true, true, true],
     lifeCount: 1,
     lifeEmpty: [false],
