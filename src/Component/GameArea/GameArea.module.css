@@ -3,7 +3,7 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .collision {
@@ -11,6 +11,8 @@
 }
 
 .footer {
+    margin-top: 1vw;
+    margin-bottom: 1vw;
     display: grid;
     grid-template-areas:
     'l c ls';
