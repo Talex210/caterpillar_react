@@ -1,9 +1,9 @@
 import style from './NameApp.module.css';
 
-export const NameApp = (props) => {
+export const NameApp = () => {
     return (
         <>
-            <text className={style.nameApp} x={props.width * 0.3 / 2} y={props.height * 1.2 / 2}>CATERPILLAR</text>
+            <text className={style.nameApp} x={window.innerWidth / 8.5} y={window.innerHeight / 2.1}>CATERPILLAR</text>
         </>
     )
 }

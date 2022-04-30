@@ -22,7 +22,7 @@ let initialState = {
     direction: 'right',
     intervalStop: 0,
     isCollision: false,
-    snakeLength: 10,
+    snakeLength: 3,
     life: [true, true, true, true, true],
     lifeCount: 1,
     lifeEmpty: [false],
@@ -38,17 +38,17 @@ export const GameAreaReducer = (state = initialState, action) => {
     let bodySnakeY = state.snake.y.slice(0, state.snake.y.length - 1);
     switch (action.type) {
         // case REFRESH_PAGE:
-            // debugger
-            /*if (state.width < state.width - 100 || state.width > state.width + 100) {
-                debugger*/
-                /*return {
-                    ...state,
-                    width: window.innerWidth,
-                    height:window.innerHeight,
-                    blockSize: Math.trunc(window.innerWidth / 70)
-                }*/
-            // }
-            // return state;
+        // debugger
+        /*if (state.width < state.width - 100 || state.width > state.width + 100) {
+            debugger*/
+        /*return {
+            ...state,
+            width: window.innerWidth,
+            height:window.innerHeight,
+            blockSize: Math.trunc(window.innerWidth / 70)
+        }*/
+        // }
+        // return state;
         case RIGHT:
             return {
                 ...state,

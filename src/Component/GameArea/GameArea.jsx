@@ -8,6 +8,7 @@ import {ControlButtons} from "./Elements/ControlButtons/ControlButtons";
 import {NameApp} from "./Elements/NameApp/NameApp";
 import {Life} from "./Elements/Life/Life";
 import {SnakeLength} from "./Elements/SnakeLength/SnakeLength";
+import {NameAppSmallWidth} from "./Elements/NameAppSmallWidth/NameAppSmallWidth";
 
 export const GameArea = (props) => {
     let isStop, setStop, start, stop;
@@ -80,7 +81,7 @@ export const GameArea = (props) => {
             </div>
             <svg viewBox={props.viewBox}>
                 {props.life[0] === false ? <GameOver width={props.width} height={props.height}/> :
-                    <NameApp width={props.width} height={props.height}/>}
+                    props.width <= 600 ? <NameAppSmallWidth/> : <NameApp/>}
                 <Border width={props.width} blockSize={props.blockSize} height={props.height}/>
                 <BlockSnake blockSize={props.blockSize} snake={props.snake}/>
                 <Apple apple={props.apple} blockSize={props.blockSize}/>
