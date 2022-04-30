@@ -1,0 +1,12 @@
+.gameOver {
+    font-size: 12vw;
+}
+
+.text {
+    font-size: 3.25vw;
+}
+
+.gameOver, .text {
+    fill: #CD7F32FF;
+    cursor: default;
+}

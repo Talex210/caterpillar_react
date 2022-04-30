@@ -23,9 +23,9 @@ let initialState = {
     intervalStop: 0,
     isCollision: false,
     snakeLength: 3,
-    life: [true, true, true, true, true],
-    lifeCount: 1,
-    lifeEmpty: [false],
+    life: [true, true, true, false, false],
+    lifeCount: 3,
+    lifeEmpty: [false, false, false],
     speed: 300
 }
 
