@@ -2,7 +2,7 @@
 
 ---
 
-## [Open the game on the website](https://talex210.github.io/snake_react/)
+## [Open the game on the website](https://talex210.github.io/caterpillar_react/)
 
 ---
 
