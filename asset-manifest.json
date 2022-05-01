@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/caterpillar_react/static/css/main.2e16e499.css",
+    "main.css": "/caterpillar_react/static/css/main.4405577d.css",
     "main.js": "/caterpillar_react/static/js/main.620d0934.js",
     "static/media/start.png": "/caterpillar_react/static/media/start.d85e3cd8c9f85a5968b9.png",
     "static/media/stop.png": "/caterpillar_react/static/media/stop.ca3653ffbf709112a173.png",
     "static/media/heartFull.png": "/caterpillar_react/static/media/heartFull.18b208e62a59f37a80b4.png",
     "index.html": "/caterpillar_react/index.html",
-    "main.2e16e499.css.map": "/caterpillar_react/static/css/main.2e16e499.css.map",
+    "main.4405577d.css.map": "/caterpillar_react/static/css/main.4405577d.css.map",
     "main.620d0934.js.map": "/caterpillar_react/static/js/main.620d0934.js.map"
   },
   "entrypoints": [
-    "static/css/main.2e16e499.css",
+    "static/css/main.4405577d.css",
     "static/js/main.620d0934.js"
   ]
 }
