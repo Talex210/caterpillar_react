@@ -1,10 +1,10 @@
 import style from './GameOverSmallWidth.module.css';
 
-export const GameOverSmallWidth = () => {
+export const GameOverSmallWidth = (props) => {
     return (
         <>
-            <text x={window.innerWidth / 14} y={window.innerHeight / 2.25} className={style.gameOver}>GAME OVER</text>
-            <text x={window.innerWidth / 13} y={window.innerHeight / 2.1} className={style.text}>
+            <text className={style.gameOver} x={props.width / 14} y={props.height / 1.9}>GAME OVER</text>
+            <text className={style.text} x={props.width / 13} y={props.height / 1.75}>
                 To start the game again, refresh the page.
             </text>
         </>
