@@ -16,9 +16,9 @@
 
 ### `W` - move up || `S` - move down || `A` - move left || `D` - move right
 
-### `SPACE` - start \ stop move
+### `SPACE` - start || pause move
 
-### or control the graphic keys at the bottom of the screen
+### or control the graphic keys at the button of the screen
 
 ---
 

@@ -1,5 +1,5 @@
 .length {
-    color: #CD7F32FF;
+    color: #125C13;
     cursor: default;
     grid-area: ls;
     display: flex;
@@ -7,13 +7,13 @@
     justify-content: center;
     align-items: center;
     /* up | right | down | left */
-    margin: 2vw 0 0 0;
+    margin: 0.5vw 0 0 0;
 }
 
 .text {
-    font-size: 6vw;
+    font-size: 5.7vw;
 }
 
 .number {
-    font-size: 10vw;
+    font-size: 9vw;
 }
