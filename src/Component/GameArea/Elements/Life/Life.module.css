@@ -7,8 +7,8 @@
 
 .life img {
     width: 5.5vw;
-    /* сверху | справа | снизу | слева */
-    margin: 1vw 1vw 0 0;
+    /* up | right | down | left */
+    margin: 0 1vw 0 0;
 }
 
 .life_smallWidth {
@@ -19,6 +19,12 @@
 }
 
 .life_smallWidth img {
-    width: 6.5vw;
-    margin: 2vw 0.5vw 0 0;
+    width: 9vw;
+    margin: 2vw 1vw 0 0;
+}
+
+.containerImg {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }

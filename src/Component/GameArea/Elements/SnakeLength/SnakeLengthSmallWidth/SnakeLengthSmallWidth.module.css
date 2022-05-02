@@ -1,0 +1,19 @@
+.length {
+    color: #CD7F32FF;
+    cursor: default;
+    grid-area: ls;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* up | right | down | left */
+    margin: 2vw 0 0 0;
+}
+
+.text {
+    font-size: 6vw;
+}
+
+.number {
+    font-size: 10vw;
+}

@@ -5,7 +5,7 @@ import heartEmpty from "../../../../assets/img/heartEmpty.png";
 export const Life = (props) => {
     return (
         <div className={props.width <= 600 ? style.life_smallWidth : style.life}>
-            <div>
+            <div className={style.containerImg}>
                 {props.life.map((l, i) =>
                     <img alt='heart full or empty' src={l ? heartFull : heartEmpty} key={i}/>
                 )}

@@ -7,8 +7,9 @@ import {GameOver} from './Elements/GameOver/GameOver';
 import {ControlButtons} from './Elements/ControlButtons/ControlButtons';
 import {NameApp} from './Elements/NameApp/NameApp';
 import {Life} from './Elements/Life/Life';
-import {SnakeLength} from './Elements/SnakeLength/SnakeLength';
+import {SnakeLengthWidth} from './Elements/SnakeLength/SnakeLengthWidth/SnakeLengthWidth';
 import {NameAppSmallWidth} from './Elements/NameAppSmallWidth/NameAppSmallWidth';
+import {SnakeLengthSmallWidth} from "./Elements/SnakeLength/SnakeLengthSmallWidth/SnakeLengthSmallWidth";
 
 export const GameArea = (props) => {
     let isStop, setStop, start, stop;
@@ -90,7 +91,8 @@ export const GameArea = (props) => {
                 <Life life={props.life} width={props.width}/>
                 <ControlButtons life={props.life} left={left} right={right} up={up} down={down} isStop={isStop}
                                 start={start} stop={stop} width={props.width}/>
-                <SnakeLength snakeLength={props.snakeLength} width={props.width}/>
+                {props.width <= 600 ? <SnakeLengthSmallWidth snakeLength={props.snakeLength}/> :
+                    <SnakeLengthWidth snakeLength={props.snakeLength}/>}
             </div>
         </div>
     )

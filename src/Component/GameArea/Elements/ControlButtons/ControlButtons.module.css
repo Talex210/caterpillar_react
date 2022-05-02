@@ -7,7 +7,7 @@
     'd d d';
     grid-template-columns: 10fr 1fr 10fr;
     justify-items: center;
-    grid-gap: 1vw;
+    grid-gap: 1.25vw;
 }
 
 .left {
@@ -36,10 +36,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 4vw;
+    width: 5.25vw;
     border-radius: 10vw;
     background-color: #efe978;
     cursor: grab;
+    border-color: #CD7F32;
 }
 
 .controlButtons button:active {
@@ -47,7 +48,7 @@
 }
 
 .controlButtons img {
-    width: 3vw;
+    width: 4.25vw;
     border-radius: 10vw;
 }
 
@@ -55,15 +56,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 8vw;
-    border-radius: 10vw;
+    width: 11vw;
+    border-radius: 15vw;
     background-color: #efe978;
     cursor: grab;
+    border-color: #CD7F32;
 }
 
 .controlButtons_smallWidth img {
-    width: 7vw;
-    border-radius: 10vw;
+    width: 10vw;
+    border-radius: 15vw;
 }
 
 .controlButtons_smallWidth {
@@ -74,5 +76,5 @@
     'd d d';
     grid-template-columns: 10fr 1fr 10fr;
     justify-items: center;
-    grid-gap: 1vw;
+    grid-gap: 2vw;
 }
