@@ -9,8 +9,8 @@ const EAT_APPLE = 'EAT_APPLE';
 
 let initialState = {
     width: window.innerWidth, /*Math.trunc(window.innerWidth / 100) * 100*/
-    height: Math.trunc(window.innerHeight / 1.2), /*Math.trunc(window.innerHeight / 100) * 75  Math.trunc(window.innerHeight * 100 / 130)*/
-    blockSize: Math.trunc(window.innerHeight / 40 + window.innerWidth / 80), /*Math.trunc(window.innerWidth / 30)*/
+    height: Math.trunc(window.innerHeight / 1.7),
+    blockSize: Math.trunc(window.innerHeight / 40 + window.innerWidth / 80),
     snake: {
         x: [1, 2, 3],
         y: [3, 3, 3]
@@ -30,6 +30,21 @@ let initialState = {
 }
 
 export const GameAreaReducer = (state = initialState, action) => {
+    /*if (state.width !== window.innerWidth) {
+        // window.location.reload()
+        return {
+            ...state,
+            width: window.innerWidth,
+            height: Math.trunc(window.innerHeight / 1.7),
+            blockSize: Math.trunc(window.innerHeight / 40 + window.innerWidth / 80)
+        }
+    }*/
+    if (state.width <= 600) {
+        return {
+            ...state,
+            height: Math.trunc(window.innerHeight / 1.27)
+        }
+    }
     let widthInBlocks = Math.trunc(state.width / state.blockSize) - 1;
     let heightInBlocks = Math.trunc(state.height / state.blockSize) - 1;
     let headSnakeX = state.snake.x[state.snake.x.length - 1];
@@ -37,18 +52,18 @@ export const GameAreaReducer = (state = initialState, action) => {
     let bodySnakeX = state.snake.x.slice(0, state.snake.x.length - 1);
     let bodySnakeY = state.snake.y.slice(0, state.snake.y.length - 1);
     switch (action.type) {
-        // case REFRESH_PAGE:
-        // debugger
-        /*if (state.width < state.width - 100 || state.width > state.width + 100) {
-            debugger*/
-        /*return {
-            ...state,
-            width: window.innerWidth,
-            height:window.innerHeight,
-            blockSize: Math.trunc(window.innerWidth / 70)
-        }*/
-        // }
-        // return state;
+        /*case REFRESH_PAGE:
+            if (state.width !== window.innerWidth) {
+                // debugger
+                // window.location.reload()
+                return {
+                    ...state,
+                    width: window.innerWidth,
+                    height: Math.trunc(window.innerHeight / 1.7),
+                    blockSize: Math.trunc(window.innerHeight / 40 + window.innerWidth / 80)
+                }
+            }
+            return state;*/
         case RIGHT:
             return {
                 ...state,

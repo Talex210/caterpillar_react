@@ -12,7 +12,7 @@
 
 ---
 
-## Snake controls from the keyboard
+## Caterpillar controls from the keyboard
 
 ### `W` - move up || `S` - move down || `A` - move left || `D` - move right
 
