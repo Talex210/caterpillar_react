@@ -8,22 +8,15 @@ import {
     moveLeft,
     moveRight,
     moveUp,
-    /*refreshPage,*/
+    refreshPage,
     setStop
 } from '../../Redux/GameAreaReducer';
 
 class GameAreaContainer extends React.Component {
 
-    /*componentDidMount() {
-        setInterval(this.refresh, 100) // this.props.refreshPage
-    }*/
-
-    /*refresh = () => {
-        if (this.props.width !== window.innerWidth) {
-            // window.location.reload();
-            console.log('!!') // не подходит this.props.width - не меняется, вызов происходит каждую секунду
-        }
-    }*/
+    componentDidMount() {
+        setInterval(this.props.refreshPage, 100);
+    }
 
     viewBox = [0, 0, this.props.width, this.props.height];
 
@@ -136,5 +129,5 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, {
-    moveRight, setStop, IsThereCollision, moveUp, moveDown, moveLeft, moveApple, /*refreshPage*/
+    moveRight, setStop, IsThereCollision, moveUp, moveDown, moveLeft, moveApple, refreshPage
 })(GameAreaContainer)

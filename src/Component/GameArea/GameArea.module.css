@@ -19,7 +19,7 @@
 
 .footer {
     grid-area: f;
-    margin-top: 1vw;
+    /*margin-top: 1vw;*/
     margin-bottom: 1vw;
     display: grid;
     grid-template-areas:

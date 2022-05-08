@@ -5,7 +5,7 @@ const DOWN = 'DOWN';
 const STOP = 'STOP';
 const COLLISION = 'COLLISION';
 const EAT_APPLE = 'EAT_APPLE';
-// const REFRESH_PAGE = 'REFRESH_PAGE';
+const REFRESH_PAGE = 'REFRESH_PAGE';
 
 let initialState = {
     width: window.innerWidth, /*Math.trunc(window.innerWidth / 100) * 100*/
@@ -30,20 +30,8 @@ let initialState = {
 }
 
 export const GameAreaReducer = (state = initialState, action) => {
-    /*if (state.width !== window.innerWidth) {
-        // window.location.reload()
-        return {
-            ...state,
-            width: window.innerWidth,
-            height: Math.trunc(window.innerHeight / 1.7),
-            blockSize: Math.trunc(window.innerHeight / 40 + window.innerWidth / 80)
-        }
-    }*/
     if (state.width <= 600) {
-        return {
-            ...state,
-            height: Math.trunc(window.innerHeight / 1.27)
-        }
+        state.height = Math.trunc(window.innerHeight / 1.27) // для 500-600 и 400-500 не подходит
     }
     let widthInBlocks = Math.trunc(state.width / state.blockSize) - 1;
     let heightInBlocks = Math.trunc(state.height / state.blockSize) - 1;
@@ -52,18 +40,14 @@ export const GameAreaReducer = (state = initialState, action) => {
     let bodySnakeX = state.snake.x.slice(0, state.snake.x.length - 1);
     let bodySnakeY = state.snake.y.slice(0, state.snake.y.length - 1);
     switch (action.type) {
-        /*case REFRESH_PAGE:
+        case REFRESH_PAGE:
             if (state.width !== window.innerWidth) {
-                // debugger
-                // window.location.reload()
-                return {
-                    ...state,
-                    width: window.innerWidth,
-                    height: Math.trunc(window.innerHeight / 1.7),
-                    blockSize: Math.trunc(window.innerHeight / 40 + window.innerWidth / 80)
-                }
+                state.width = window.innerWidth;
+                state.height = Math.trunc(window.innerHeight / 1.7);
+                state.blockSize = Math.trunc(window.innerHeight / 40 + window.innerWidth / 80);
+                window.location.reload();
             }
-            return state;*/
+            return state;
         case RIGHT:
             return {
                 ...state,
@@ -232,4 +216,4 @@ export const moveDown = () => ({type: DOWN});
 export const setStop = (stop) => ({type: STOP, stop});
 export const IsThereCollision = () => ({type: COLLISION});
 export const moveApple = () => ({type: EAT_APPLE});
-// export const refreshPage = () => ({type: REFRESH_PAGE});
+export const refreshPage = () => ({type: REFRESH_PAGE});

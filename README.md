@@ -6,9 +6,9 @@
 
 ---
 
-## `!` When changing the screen resolution => `F5` REFRESH THE PAGE `!` 
+### When the screen resolution changes, the page is reloaded
 
-### This is so that the playing field becomes the correct size
+### `!` The game will start again `!` 
 
 ---
 
