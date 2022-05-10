@@ -8,7 +8,7 @@ const EAT_APPLE = 'EAT_APPLE';
 const REFRESH_PAGE = 'REFRESH_PAGE';
 
 let initialState = {
-    width: window.innerWidth, /*Math.trunc(window.innerWidth / 100) * 100*/
+    width: window.innerWidth,
     height: Math.trunc(window.innerHeight / 1.7),
     blockSize: Math.trunc(window.innerHeight / 40 + window.innerWidth / 80),
     snake: {

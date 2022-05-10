@@ -12,7 +12,8 @@ export const ControlButtons = (props) => {
             <button className={style.left} onClick={props.left} disabled={props.life[0] === false ? 'disabled' : null}>
                 <img alt={'button left'} src={left}/>
             </button>
-            <button className={style.right} onClick={props.right} disabled={props.life[0] === false ? 'disabled' : null}>
+            <button className={style.right} onClick={props.right}
+                    disabled={props.life[0] === false ? 'disabled' : null}>
                 <img alt={'button right'} src={right}/>
             </button>
             <button className={style.up} onClick={props.up} disabled={props.life[0] === false ? 'disabled' : null}>

@@ -5,7 +5,7 @@
     grid-template-areas:
     'g'
     'f';
-    grid-template-rows: 2fr 1fr; /*2 3.7*/
+    grid-template-rows: 2fr 1fr;
     align-items: center;
     grid-area: g;
 }
@@ -16,11 +16,9 @@
 
 .footer {
     grid-area: f;
-    /*margin-top: 1vw;*/
     margin-bottom: 1vw;
     display: grid;
     grid-template-areas:
     'l c ls';
     grid-template-columns: 10fr 3.5fr 10fr;
-    /*grid-gap: 1vw;*/
 }
