@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/caterpillar_react/static/css/main.81cd1dbd.css",
-    "main.js": "/caterpillar_react/static/js/main.bc472da3.js",
+    "main.js": "/caterpillar_react/static/js/main.31d578cc.js",
     "index.html": "/caterpillar_react/index.html",
     "main.81cd1dbd.css.map": "/caterpillar_react/static/css/main.81cd1dbd.css.map",
-    "main.bc472da3.js.map": "/caterpillar_react/static/js/main.bc472da3.js.map"
+    "main.31d578cc.js.map": "/caterpillar_react/static/js/main.31d578cc.js.map"
   },
   "entrypoints": [
     "static/css/main.81cd1dbd.css",
-    "static/js/main.bc472da3.js"
+    "static/js/main.31d578cc.js"
   ]
 }
