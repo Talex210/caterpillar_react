@@ -8,9 +8,10 @@
     grid-template-areas:
     'g'
     'f';
-    grid-template-rows: 3.7fr 1fr; /*2 1*/
+    grid-template-rows: 2fr 1fr; /*3.7*/
     align-items: center;
     grid-area: g;
+    grid-gap: 1vw;
 }
 
 .collision {

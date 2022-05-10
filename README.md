@@ -6,12 +6,6 @@
 
 ---
 
-### When the screen resolution changes, the page is reloaded
-
-### `!` The game will start again `!` 
-
----
-
 ## Caterpillar controls from the keyboard
 
 ### `W` - move up || `S` - move down || `A` - move left || `D` - move right
@@ -27,6 +21,7 @@
  - collision with the frame of the field and the body of the snake **=>** minus life.
  - the snake ate an apple **=>** its length is *+ 1* **&&** the movement speed increases by *25 ms*.
  - lives are over **=>** the game is over.
+ - screen resolution changes **=>** **!** the game will start again **!**
 
 ---
 
