@@ -31,9 +31,8 @@ let initialState = {
 
 export const GameAreaReducer = (state = initialState, action) => {
     if (state.width <= 600) {
-        if (window.innerHeight / window.innerWidth <= 1.5) {
-            state.height = Math.trunc(window.innerHeight / 1.6)
-        } else {state.height = Math.trunc(window.innerHeight / 1.5)}
+        window.innerHeight / window.innerWidth <= 1.5 ? state.height = Math.trunc(window.innerHeight / 1.6) :
+            state.height = Math.trunc(window.innerHeight / 1.5)
     }
     let widthInBlocks = Math.trunc(state.width / state.blockSize) - 1;
     let heightInBlocks = Math.trunc(state.height / state.blockSize) - 1;

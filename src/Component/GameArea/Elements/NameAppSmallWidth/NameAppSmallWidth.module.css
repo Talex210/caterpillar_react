@@ -1,5 +1,11 @@
-.nameApp {
-    font-size: 16vw;
+.nameAppMobile {
+    font-size: 10vw;
+    fill: rgba(205, 127, 50, 0.30);
+    cursor: default;
+}
+
+.nameAppPC {
+    font-size: 7vw;
     fill: rgba(205, 127, 50, 0.30);
     cursor: default;
 }
