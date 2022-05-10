@@ -30,15 +30,11 @@ let initialState = {
 }
 
 export const GameAreaReducer = (state = initialState, action) => {
-    if (state.width <= 900) {
-        state.height = Math.trunc(window.innerHeight / 1.55)
+    if (state.width <= 600) {
+        if (window.innerHeight / window.innerWidth <= 1.5) {
+            state.height = Math.trunc(window.innerHeight / 1.6)
+        } else {state.height = Math.trunc(window.innerHeight / 1.5)}
     }
-    if (state.width <= 800) {
-        state.height = Math.trunc(window.innerHeight / 1.5)
-    }
-    /*if (state.width <= 350) {
-        state.height = Math.trunc(window.innerHeight / 1.35)
-    }*/
     let widthInBlocks = Math.trunc(state.width / state.blockSize) - 1;
     let heightInBlocks = Math.trunc(state.height / state.blockSize) - 1;
     let headSnakeX = state.snake.x[state.snake.x.length - 1];

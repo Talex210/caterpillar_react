@@ -7,33 +7,12 @@ import start from '../../../../assets/img/start.png'
 import stop from '../../../../assets/img/stop.png'
 
 export const ControlButtons = (props) => {
-    const sizeButton = () => {
-        switch(true) {
-            case (props.width > 900):
-                return style.controlButtons
-            case (props.width > 800):
-                return style.controlButtons_Width800
-            case (props.width > 600):
-                return style.controlButtons_Width600
-            case (props.width > 500):
-                return style.controlButtons_Width500
-            case (props.width > 400):
-                return style.controlButtons_Width400
-            case (props.width > 300):
-                return style.controlButtons_Width300
-            default: return style.controlButtons_Width300
-        }
-    }
-
     return (
-        <div /*className={props.width <= 600 ? style.controlButtons_smallWidth : style.controlButtons}*/
-            className={sizeButton()}
-        >
+        <div className={props.width <= 600 ? style.controlButtons_smallWidth : style.controlButtons}>
             <button className={style.left} onClick={props.left} disabled={props.life[0] === false ? 'disabled' : null}>
                 <img alt={'button left'} src={left}/>
             </button>
-            <button className={style.right} onClick={props.right}
-                    disabled={props.life[0] === false ? 'disabled' : null}>
+            <button className={style.right} onClick={props.right} disabled={props.life[0] === false ? 'disabled' : null}>
                 <img alt={'button right'} src={right}/>
             </button>
             <button className={style.up} onClick={props.up} disabled={props.life[0] === false ? 'disabled' : null}>

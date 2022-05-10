@@ -1,17 +1,13 @@
 .gameArea {
     background: #efe978;
     height: 100vh;
-    /*display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;*/
     display: grid;
     grid-template-areas:
     'g'
     'f';
-    grid-template-rows: 2fr 1fr; /*3.7*/
+    grid-template-rows: 2fr 1fr; /*2 3.7*/
     align-items: center;
     grid-area: g;
-    grid-gap: 1vw;
 }
 
 .collision {
