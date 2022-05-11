@@ -18,8 +18,8 @@
 
 ## Rules of the game:
 
- - collision with the frame of the field and the body of the snake **=>** minus life.
- - the snake ate an apple **=>** its length is *+ 1* **&&** the movement speed increases by *25 ms*.
+ - collision with the frame of the field and the body of the caterpillar **=>** minus life.
+ - the caterpillar ate an apple **=>** its length is *+ 1* **&&** the movement speed increases by *25 ms*.
  - lives are over **=>** the game is over.
  - screen resolution changes **=>** **!** the game will start again **!**
 
@@ -28,11 +28,11 @@
 ## Features of the game
 
 - it is impossible to set the reverse direction of the current movement.
-- in case of collision **=>** the snake returns to its original position **&&** the speed of movement and direction are reset.
+- in case of collision **=>** the caterpillar returns to its original position **&&** the speed of movement and direction are reset.
 - no lives **=>** all processes are stopped **&&** graphical control buttons are disabled **&&** the inscription Game Over appears.
-- the snake ate an apple **=>** the apple in the border of the field changes its position to random **&&** the apple does not appear in the snake's body.
-- snake length counter.
-- the snake's body alternates colors.
+- the caterpillar ate an apple **=>** the apple in the border of the field changes its position to random **&&** the apple does not appear in the caterpillar's body.
+- caterpillar length counter.
+- the caterpillar's body alternates colors.
 - the game can be paused.
 - the game is adaptive to the screen resolution.
 
